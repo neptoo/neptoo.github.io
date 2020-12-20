@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"neptoo.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="搭建好博客后，再对博客进行个性化设置，优化页面。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客主题个性化">
+<meta property="og:url" content="https://neptoo.github.io/2018/09/23/theme-personal-setting/index.html">
+<meta property="og:site_name" content="Neptoo&#39;s Blog">
+<meta property="og:description" content="搭建好博客后，再对博客进行个性化设置，优化页面。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-09-23T11:25:24.000Z">
+<meta property="article:modified_time" content="2020-02-21T01:52:05.283Z">
+<meta property="article:author" content="Neptoo">
+<meta property="article:tag" content="搭建博客">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://neptoo.github.io/2018/09/23/theme-personal-setting/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>博客主题个性化 | Neptoo's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Neptoo's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://neptoo.github.io/2018/09/23/theme-personal-setting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Neptoo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Neptoo's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          博客主题个性化
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-09-23 19:25:24" itemprop="dateCreated datePublished" datetime="2018-09-23T19:25:24+08:00">2018-09-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-21 09:52:05" itemprop="dateModified" datetime="2020-02-21T09:52:05+08:00">2020-02-21</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>搭建好博客后，再对博客进行个性化设置，优化页面。</p>
+<a id="more"></a>
+
+<h3 id="添加分类、标签、关于等页面"><a href="#添加分类、标签、关于等页面" class="headerlink" title="添加分类、标签、关于等页面"></a>添加分类、标签、关于等页面</h3><p>打开git bash，在站点目录下输入<code>hexo new page &quot;categories&quot;</code><br>在站点目录source文件夹下，会新增categories文件夹，里面有一个index.md文件，打开后即可更改配置。tags,about页面创建类似，输入</p>
+<pre><code>hexo new page &quot;tags&quot;
+hexo new page &quot;about&quot;</code></pre>
+<p>打开主题配置文件_config.yml找到menu，添加对应菜单。<br>打开next\language文件下的zh-CN，添加菜单标签项：</p>
+<blockquote>
+<p>menu<br>  home: 首页<br>  archives: 归档<br>  categories: 分类<br>  tags: 标签<br>  about: 关于<br>  music: 音乐</p>
+</blockquote>
+<h3 id="设置右侧栏头像"><a href="#设置右侧栏头像" class="headerlink" title="设置右侧栏头像"></a>设置右侧栏头像</h3><p>编辑站点配置文件，找到avatar，设置url地址为/image/avatar.png，avatar.png放在/站点目录/source/image/里。</p>
+<h4 id="设置头像旋转效果"><a href="#设置头像旋转效果" class="headerlink" title="设置头像旋转效果"></a>设置头像旋转效果</h4><p>打开<code>themes\next\source\css\_common\components\sidebar\sidebar-author.styl</code>,添加以下注释代码。</p>
+<pre><code>.site-author-image &#123;
+  display: block;
+  margin: 0 auto;
+  padding: $site-author-image-padding;
+  max-width: $site-author-image-width;
+  height: $site-author-image-height;
+  border: $site-author-image-border-width solid $site-author-image-border-color;
+
+   /* 头像圆形 */
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  box-shadow: inset 0 -1px 0 #333sf;
+
+  /* 鼠标经过头像旋转时间 */
+  -webkit-transition: -webkit-transform 1.0s ease-out;
+  -moz-transition: -moz-transform 1.0s ease-out;
+  transition: transform 1.0s ease-out;
+&#125;</code></pre>
+<h3 id="设置RSS"><a href="#设置RSS" class="headerlink" title="设置RSS"></a>设置RSS</h3><p>在站点目录下，执行git bash命令：<br><code>npm install --save hexo-generator-feed</code><br>安装插件后，打开全局配置文件，加入代码：</p>
+<pre><code># Extensions
+## Plugins: http://hexo.io/plugins/
+plugins: hexo-generate-feed</code></pre>
+<p>然后打开主题配置文件_config.yml，找到rss，添加rss: /atom.xml。</p>
+<h3 id="自定义博客底部效果"><a href="#自定义博客底部效果" class="headerlink" title="自定义博客底部效果"></a>自定义博客底部效果</h3><ul>
+<li>隐藏power by hexo/强力驱动<br>打开<code>themes/next/layout/_partials/footer.swig</code>,直接注释隐藏以下代码即可,建议不要删除，代码如下:</li>
+</ul>
+<pre><code>&lt;!--&#123;% if theme.footer.powered.enable %&#125;
+      <div class="powered-by">&#123;#
+      #&#125;&#123;&#123; __('footer.powered', '<a class="theme-link" target="_blank"' + nofollow + ' href="https://hexo.io">Hexo</a>') &#125;&#125;&#123;% if theme.footer.powered.version %&#125; v&#123;&#123; hexo_env('version') &#125;&#125;&#123;% endif %&#125;&#123;#
+    #&#125;&lt;/div&gt;
+&#123;% endif %&#125;
+
+&#123;% if theme.footer.powered.enable and theme.footer.theme.enable %&#125;
+      <span class="post-meta-divider">|</span>
+    &#123;% endif %&#125;
+
+&#123;% if theme.footer.theme.enable %&#125;
+     <div class="theme-info">&#123;#
+      #&#125;&#123;&#123; __('footer.theme') &#125;&#125; &mdash; &#123;#
+      #&#125;<a class="theme-link" target="_blank"&#123;&#123; nofollow &#125;&#125; href="https://github.com/theme-next/hexo-theme-next">&#123;#
+        #&#125;NexT.&#123;&#123; theme.scheme &#125;&#125;&#123;#
+      #&#125;</a>&#123;% if theme.footer.theme.version %&#125; v&#123;&#123; version &#125;&#125;&#123;% endif %&#125;&#123;#
+    #&#125;&lt;/div&gt;
+&#123;% endif %&#125;--&gt;</code></pre>
+<ul>
+<li>实现网站底部访问量显示<br>打开主题配置文件_config.yml,修改如下代码：<blockquote>
+<p>busuanzi_count:<br>enable: true<br>total_visitors: true<br>total_visitors_icon: user<br>total_views: true<br>total_views_icon: eye<br>post_views: true<br>post_views_icon: eye</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="首页文章阴影边框效果"><a href="#首页文章阴影边框效果" class="headerlink" title="首页文章阴影边框效果"></a>首页文章阴影边框效果</h3><p>打开<code>next\source\css\_custom\custom.styl</code>文件,添加以下代码:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 主页文章添加阴影效果</span><br><span class="line"> <span class="selector-class">.post</span> &#123;</span><br><span class="line">   <span class="attribute">margin-top</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">margin-bottom</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">   <span class="attribute">-webkit-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, .<span class="number">5</span>);</span><br><span class="line">   <span class="attribute">-moz-box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, .<span class="number">5</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="添加社交链接"><a href="#添加社交链接" class="headerlink" title="添加社交链接"></a>添加社交链接</h3><p>编辑站点配置文件，添加</p>
+<blockquote>
+<p>social:<br>  github: <a target="_blank" rel="noopener" href="https://github.com/your-user-name">https://github.com/your-user-name</a> || github<br>  twitter: <a target="_blank" rel="noopener" href="https://twitter.com/your-user-name||">https://twitter.com/your-user-name||</a> twitter<br>  weibo: <a target="_blank" rel="noopener" href="http://weibo.com/your-user-name">http://weibo.com/your-user-name</a> || weibo<br>  douban: <a target="_blank" rel="noopener" href="http://douban.com/people/your-user-name">http://douban.com/people/your-user-name</a> || douban<br>  zhihu: <a target="_blank" rel="noopener" href="http://www.zhihu.com/people/your-user-name">http://www.zhihu.com/people/your-user-name</a> || name</p>
+</blockquote>
+<p>  ||后面可以自定义需要的社交图标，name是图标名字</p>
+<h3 id="发表新文章"><a href="#发表新文章" class="headerlink" title="发表新文章"></a>发表新文章</h3><p>在站点根目录下，打开git bash,输入<code>hexo n &quot;name of new post&quot;</code><br>回车后，可以在source文件夹下的_post文件下，看到新建了一个<code>name of new post.md</code>文件，可以给文章贴上相应标签tags，<code>[tag1,tag2,...]</code>，在–下方添加正文内容。</p>
+<h3 id="首页博客相关设置"><a href="#首页博客相关设置" class="headerlink" title="首页博客相关设置"></a>首页博客相关设置</h3><ul>
+<li>文章以摘要形式显示<br>打开主题配置文件，找到如下位置并修改<blockquote>
+<p>  auto_excerpt:<br>  enable: true<br>  length: 150<br> 其中length代表显示摘要的截取字符长度</p>
+</blockquote>
+</li>
+<li>设置首页文章显示篇数<br>安装插件：</li>
+</ul>
+<pre><code> npm install --save hexo-generator-index
+  npm install --save hexo-generator-archive
+  npm install --save hexo-generator-tag</code></pre>
+<p>  在站点配置文件中添加代码（per_page是显示篇数）</p>
+<pre><code>  index_generator:
+  per_page: 8
+
+  archive-generator:
+    per_page: 20
+    yearly: true
+    monthly: true
+
+ tag_generator:
+    per_page: 10</code></pre>
+<ul>
+<li>文章置顶<br>打开站点根目录下<code>node_modules/hexo-generator-index/lib/generator.js</code>,将以下代码替换原来的。在文章中添加top值，数值越大文章越靠前。</li>
+</ul>
+<pre><code>&#39;use strict&#39;;
+var pagination = require(&#39;hexo-pagination&#39;);
+module.exports = function(locals)&#123;
+  var config = this.config;
+  var posts = locals.posts;
+    posts.data = posts.data.sort(function(a, b) &#123;
+        if(a.top &amp;&amp; b.top) &#123; // 两篇文章top都有定义
+            if(a.top == b.top) return b.date - a.date; // 若top值一样则按照文章日期降序排
+            else return b.top - a.top; // 否则按照top值降序排
+        &#125;
+        else if(a.top &amp;&amp; !b.top) &#123; // 以下是只有一篇文章top有定义，那么将有top的排在前面
+            return -1;
+        &#125;
+        else if(!a.top &amp;&amp; b.top) &#123;
+            return 1;
+        &#125;
+        else return b.date - a.date; // 都没定义按照文章日期降序排
+    &#125;);
+  var paginationDir = config.pagination_dir || &#39;page&#39;;
+  return pagination(&#39;&#39;, posts, &#123;
+    perPage: config.index_generator.per_page,
+    layout: [&#39;index&#39;, &#39;archive&#39;],
+    format: paginationDir + &#39;/%d/&#39;,
+    data: &#123;
+      __index: true
+    &#125;
+  &#125;);
+&#125;;</code></pre>
+<ul>
+<li>文章底部打赏<br>开启文章底部打赏功能：在主题配置文件中，配置如下：</li>
+</ul>
+<pre><code># Reward
+reward_comment: 创作不易，感谢支持
+wechatpay: /images/wechatpay.jpg
+alipay: /images/alipay.jpg
+#bitcoin: /images/bitcoin.png</code></pre>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="tag"># 搭建博客</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/07/14/personal-blog-build/" rel="prev" title="搭建Hexo-next个人博客">
+      <i class="fa fa-chevron-left"></i> 搭建Hexo-next个人博客
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/09/30/javascript-packaging/" rel="next" title="如何封装JS-模块化与封装">
+      如何封装JS-模块化与封装 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E3%80%81%E6%A0%87%E7%AD%BE%E3%80%81%E5%85%B3%E4%BA%8E%E7%AD%89%E9%A1%B5%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">添加分类、标签、关于等页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%8F%B3%E4%BE%A7%E6%A0%8F%E5%A4%B4%E5%83%8F"><span class="nav-number">2.</span> <span class="nav-text">设置右侧栏头像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%A4%B4%E5%83%8F%E6%97%8B%E8%BD%AC%E6%95%88%E6%9E%9C"><span class="nav-number">2.1.</span> <span class="nav-text">设置头像旋转效果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AERSS"><span class="nav-number">3.</span> <span class="nav-text">设置RSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8D%9A%E5%AE%A2%E5%BA%95%E9%83%A8%E6%95%88%E6%9E%9C"><span class="nav-number">4.</span> <span class="nav-text">自定义博客底部效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E9%98%B4%E5%BD%B1%E8%BE%B9%E6%A1%86%E6%95%88%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">首页文章阴影边框效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%A4%BE%E4%BA%A4%E9%93%BE%E6%8E%A5"><span class="nav-number">6.</span> <span class="nav-text">添加社交链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E8%A1%A8%E6%96%B0%E6%96%87%E7%AB%A0"><span class="nav-number">7.</span> <span class="nav-text">发表新文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A6%96%E9%A1%B5%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE"><span class="nav-number">8.</span> <span class="nav-text">首页博客相关设置</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Neptoo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Neptoo</span>
+</div>
+
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

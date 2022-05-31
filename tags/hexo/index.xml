@@ -8,10 +8,10 @@
         <language>en-us</language>
         <lastBuildDate>Sun, 14 Oct 2018 17:30:42 +0000</lastBuildDate><atom:link href="https://neptoo.github.io/tags/hexo/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>解决Hexo&#43;Next博客无法正常显示访问量的问题</title>
-        <link>https://neptoo.github.io/p/%E8%A7%A3%E5%86%B3hexo-next%E5%8D%9A%E5%AE%A2%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E6%98%BE%E7%A4%BA%E8%AE%BF%E9%97%AE%E9%87%8F%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+        <link>https://neptoo.github.io/2018/%E8%A7%A3%E5%86%B3hexo-next%E5%8D%9A%E5%AE%A2%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E6%98%BE%E7%A4%BA%E8%AE%BF%E9%97%AE%E9%87%8F%E7%9A%84%E9%97%AE%E9%A2%98/</link>
         <pubDate>Sun, 14 Oct 2018 17:30:42 +0000</pubDate>
         
-        <guid>https://neptoo.github.io/p/%E8%A7%A3%E5%86%B3hexo-next%E5%8D%9A%E5%AE%A2%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E6%98%BE%E7%A4%BA%E8%AE%BF%E9%97%AE%E9%87%8F%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+        <guid>https://neptoo.github.io/2018/%E8%A7%A3%E5%86%B3hexo-next%E5%8D%9A%E5%AE%A2%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E6%98%BE%E7%A4%BA%E8%AE%BF%E9%97%AE%E9%87%8F%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
         <description>&lt;p&gt;最近几天登陆博客，发现底部的访问量无法显示了，以为是上次更改的时候不小心删除或修改了某些配置，查找了一遍footer.swig等关于访客量的配置，没有发现问题。搜了下才发现是不蒜子的域名过期了，原来引用的js地址自然需要更改。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;解决方法：更换js引用，打开主题配置中的&lt;code&gt;next\layout\_third-party\analytics\busuanzi-counter.swig&lt;/code&gt;
@@ -21,10 +21,10 @@
         </item>
         <item>
         <title>搭建Hexo-next个人博客</title>
-        <link>https://neptoo.github.io/p/%E6%90%AD%E5%BB%BAhexo-next%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+        <link>https://neptoo.github.io/2018/%E6%90%AD%E5%BB%BAhexo-next%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Sat, 14 Jul 2018 18:11:42 +0000</pubDate>
         
-        <guid>https://neptoo.github.io/p/%E6%90%AD%E5%BB%BAhexo-next%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+        <guid>https://neptoo.github.io/2018/%E6%90%AD%E5%BB%BAhexo-next%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
         <description>&lt;p&gt;Hexo是使用较为广泛的一个快速简洁的博客框架，Github可以免费托管代码，本文以next主题为例，帮助新手从零开始搭建个人技术博客。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;安装和配置hexo&#34;&gt;安装和配置Hexo&lt;/h2&gt;

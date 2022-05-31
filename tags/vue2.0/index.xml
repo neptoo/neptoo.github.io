@@ -8,23 +8,13 @@
         <language>en-us</language>
         <lastBuildDate>Sun, 30 Jun 2019 12:09:22 +0000</lastBuildDate><atom:link href="https://neptoo.github.io/tags/vue2.0/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>毕业设计(下):Vue&#43;ElementUI&#43;ECharts实现前端数据可视化</title>
-        <link>https://neptoo.github.io/p/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E4%B8%8Bvue-elementui-echarts%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+        <link>https://neptoo.github.io/2019/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E4%B8%8Bvue-elementui-echarts%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
         <pubDate>Sun, 30 Jun 2019 12:09:22 +0000</pubDate>
         
-        <guid>https://neptoo.github.io/p/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E4%B8%8Bvue-elementui-echarts%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
-        <description>&lt;p&gt;毕业设计最终项目成果展示：&lt;a class=&#34;link&#34; href=&#34;https://github.com/neptoo/recruitment-data-admin&#34;  title=&#34;点击查看&#34;
+        <guid>https://neptoo.github.io/2019/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E4%B8%8Bvue-elementui-echarts%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
+        <description>&lt;img src="https://neptoo.github.io/2019/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E4%B8%8Bvue-elementui-echarts%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/grad.png" alt="Featured image of post 毕业设计(下):Vue&#43;ElementUI&#43;ECharts实现前端数据可视化" /&gt;&lt;p&gt;毕业设计最终项目成果展示：&lt;a class=&#34;link&#34; href=&#34;https://github.com/neptoo/recruitment-data-admin&#34;  title=&#34;点击查看&#34;
      target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;点击查看&lt;/a&gt;
-&lt;img src=&#34;https://cdn.nlark.com/yuque/0/2020/png/224549/1582713179200-730251b7-da0d-4a16-a23a-18109348e9e2.png?x-oss-process=image/resize,w_1492&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;可视化图表&#34;
-	
-	
-&gt;&lt;/p&gt;
+    &gt;点击查看&lt;/a&gt;&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;基础配置&#34;&gt;基础配置&lt;/h2&gt;
 &lt;h3 id=&#34;安装echarts依赖&#34;&gt;安装ECharts依赖&lt;/h3&gt;
@@ -565,10 +555,10 @@
         </item>
         <item>
         <title>毕业设计(上):Vue&#43;MySQL前端连接数据库实现表格增删改查</title>
-        <link>https://neptoo.github.io/p/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E4%B8%8Avue-mysql%E5%89%8D%E7%AB%AF%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</link>
+        <link>https://neptoo.github.io/2019/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E4%B8%8Avue-mysql%E5%89%8D%E7%AB%AF%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</link>
         <pubDate>Mon, 24 Jun 2019 16:46:45 +0000</pubDate>
         
-        <guid>https://neptoo.github.io/p/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E4%B8%8Avue-mysql%E5%89%8D%E7%AB%AF%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</guid>
+        <guid>https://neptoo.github.io/2019/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E4%B8%8Avue-mysql%E5%89%8D%E7%AB%AF%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</guid>
         <description>&lt;p&gt;毕业设计主题是数据可视化，选择的技术栈是Vue2.0，数据库选的是MySQL，首先需要解决的就是前端连接数据库的问题。
 本文基于&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/wantingtr/article/details/84482736&#34;  title=&#34;前端网站连接MySQL数据库&#34;
      target=&#34;_blank&#34; rel=&#34;noopener&#34;

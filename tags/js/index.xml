@@ -8,10 +8,10 @@
         <language>en-us</language>
         <lastBuildDate>Sun, 30 Sep 2018 18:44:32 +0000</lastBuildDate><atom:link href="https://neptoo.github.io/tags/js/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>如何封装JS-模块化与封装</title>
-        <link>https://neptoo.github.io/p/%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85js-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E5%B0%81%E8%A3%85/</link>
+        <link>https://neptoo.github.io/2018/%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85js-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E5%B0%81%E8%A3%85/</link>
         <pubDate>Sun, 30 Sep 2018 18:44:32 +0000</pubDate>
         
-        <guid>https://neptoo.github.io/p/%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85js-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E5%B0%81%E8%A3%85/</guid>
+        <guid>https://neptoo.github.io/2018/%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85js-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E5%B0%81%E8%A3%85/</guid>
         <description>&lt;p&gt;所谓模块化就是将需要用到的方法封装成为一个模块，哪里需要直接调用即可。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;h4 id=&#34;js库命名空间&#34;&gt;js库+命名空间&lt;/h4&gt;

@@ -8,11 +8,11 @@
         <language>en-us</language>
         <lastBuildDate>Fri, 15 Feb 2019 18:24:10 +0000</lastBuildDate><atom:link href="https://neptoo.github.io/tags/data-structure/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>前端数据结构的算法实现</title>
-        <link>https://neptoo.github.io/p/%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/</link>
+        <link>https://neptoo.github.io/2019/%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/</link>
         <pubDate>Fri, 15 Feb 2019 18:24:10 +0000</pubDate>
         
-        <guid>https://neptoo.github.io/p/%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/</guid>
-        <description>&lt;img src="https://neptoo.github.io/p/%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/data-structure.jpg" alt="Featured image of post 前端数据结构的算法实现" /&gt;&lt;!-- raw HTML omitted --&gt;
+        <guid>https://neptoo.github.io/2019/%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/</guid>
+        <description>&lt;img src="https://neptoo.github.io/2019/%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/data-structure.jpg" alt="Featured image of post 前端数据结构的算法实现" /&gt;&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;前端面试中算法题是比较难的一部分，今天总结下数据结构中的算法实现。&lt;/p&gt;
 &lt;h2 id=&#34;排序&#34;&gt;排序&lt;/h2&gt;
 &lt;h3 id=&#34;快速排序&#34;&gt;快速排序&lt;/h3&gt;

@@ -8,11 +8,11 @@
         <language>en-us</language>
         <lastBuildDate>Fri, 05 Oct 2018 20:08:00 +0000</lastBuildDate><atom:link href="https://neptoo.github.io/tags/npm/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>ES6基础入门</title>
-        <link>https://neptoo.github.io/p/es6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/</link>
+        <link>https://neptoo.github.io/2018/es6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/</link>
         <pubDate>Fri, 05 Oct 2018 20:08:00 +0000</pubDate>
         
-        <guid>https://neptoo.github.io/p/es6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/</guid>
-        <description>&lt;img src="https://neptoo.github.io/p/es6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/ES6.png" alt="Featured image of post ES6基础入门" /&gt;&lt;p&gt;从ES6测试环境搭建到重点知识点小结。&lt;/p&gt;
+        <guid>https://neptoo.github.io/2018/es6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/</guid>
+        <description>&lt;img src="https://neptoo.github.io/2018/es6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/ES6.png" alt="Featured image of post ES6基础入门" /&gt;&lt;p&gt;从ES6测试环境搭建到重点知识点小结。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;浏览器环境搭建&#34;&gt;浏览器环境搭建&lt;/h2&gt;
 &lt;p&gt;ES6语法虽然也是原生JS，但并不是所有浏览器都支持，要在chrome下正常运行，还需要一些构建工具。

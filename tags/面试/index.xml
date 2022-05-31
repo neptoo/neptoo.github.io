@@ -8,11 +8,11 @@
         <language>en-us</language>
         <lastBuildDate>Fri, 24 Apr 2020 13:34:43 +0000</lastBuildDate><atom:link href="https://neptoo.github.io/tags/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>从 MySQL 处理大量数据谈起</title>
-        <link>https://neptoo.github.io/p/%E4%BB%8E-mysql-%E5%A4%84%E7%90%86%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E8%B0%88%E8%B5%B7/</link>
+        <link>https://neptoo.github.io/2020/%E4%BB%8E-mysql-%E5%A4%84%E7%90%86%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E8%B0%88%E8%B5%B7/</link>
         <pubDate>Fri, 24 Apr 2020 13:34:43 +0000</pubDate>
         
-        <guid>https://neptoo.github.io/p/%E4%BB%8E-mysql-%E5%A4%84%E7%90%86%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E8%B0%88%E8%B5%B7/</guid>
-        <description>&lt;img src="https://neptoo.github.io/p/%E4%BB%8E-mysql-%E5%A4%84%E7%90%86%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E8%B0%88%E8%B5%B7/326502.jpg" alt="Featured image of post 从 MySQL 处理大量数据谈起" /&gt;&lt;p&gt;当需要从数据库查询的表有上万条记录的时候，将会导致查询和插入耗时太长，特别是随着数据量的增加特别明显，这时需要对于数据库查询，有很多种方法和优化的点。&lt;/p&gt;
+        <guid>https://neptoo.github.io/2020/%E4%BB%8E-mysql-%E5%A4%84%E7%90%86%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E8%B0%88%E8%B5%B7/</guid>
+        <description>&lt;img src="https://neptoo.github.io/2020/%E4%BB%8E-mysql-%E5%A4%84%E7%90%86%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E8%B0%88%E8%B5%B7/326502.jpg" alt="Featured image of post 从 MySQL 处理大量数据谈起" /&gt;&lt;p&gt;当需要从数据库查询的表有上万条记录的时候，将会导致查询和插入耗时太长，特别是随着数据量的增加特别明显，这时需要对于数据库查询，有很多种方法和优化的点。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;依然是面试官系列，如何在 MySQL 中处理十万条以上数据？本来打算作为数据库笔记的附加题，查资料后发现可以延伸到很多方面。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -144,10 +144,10 @@
         </item>
         <item>
         <title>从一道前端面试题说起</title>
-        <link>https://neptoo.github.io/p/%E4%BB%8E%E4%B8%80%E9%81%93%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E8%AF%B4%E8%B5%B7/</link>
+        <link>https://neptoo.github.io/2019/%E4%BB%8E%E4%B8%80%E9%81%93%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E8%AF%B4%E8%B5%B7/</link>
         <pubDate>Wed, 16 Jan 2019 17:32:44 +0000</pubDate>
         
-        <guid>https://neptoo.github.io/p/%E4%BB%8E%E4%B8%80%E9%81%93%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E8%AF%B4%E8%B5%B7/</guid>
+        <guid>https://neptoo.github.io/2019/%E4%BB%8E%E4%B8%80%E9%81%93%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E8%AF%B4%E8%B5%B7/</guid>
         <description>&lt;p&gt;最近在学习微信小程序的开发，涉及到移动端设备适配的知识点，想到之前秋招一位面试官问我的问题&amp;ndash;怎么判断用户是用什么设备访问的，是pc端还是移动端？
 我回答的是根据屏幕分辨率大小尺寸，他又表示电脑端也可以竖屏。。。然后我就不知道了，后来他也给我讲了应该怎么解决，现在时间有点久了答案已经忘了，于是决定搜集资料写篇博客记录这个问题。
 网上给出的大多数方案，用js判断的原理是浏览器提交的user agent，不管是PC还是手机浏览器。&lt;/p&gt;

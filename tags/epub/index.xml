@@ -8,10 +8,10 @@
         <language>en-us</language>
         <lastBuildDate>Thu, 22 Nov 2018 12:52:09 +0000</lastBuildDate><atom:link href="https://neptoo.github.io/tags/epub/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>用Vue实现Web阅读器开发项目总结</title>
-        <link>https://neptoo.github.io/p/%E7%94%A8vue%E5%AE%9E%E7%8E%B0web%E9%98%85%E8%AF%BB%E5%99%A8%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/</link>
+        <link>https://neptoo.github.io/2018/%E7%94%A8vue%E5%AE%9E%E7%8E%B0web%E9%98%85%E8%AF%BB%E5%99%A8%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/</link>
         <pubDate>Thu, 22 Nov 2018 12:52:09 +0000</pubDate>
         
-        <guid>https://neptoo.github.io/p/%E7%94%A8vue%E5%AE%9E%E7%8E%B0web%E9%98%85%E8%AF%BB%E5%99%A8%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/</guid>
+        <guid>https://neptoo.github.io/2018/%E7%94%A8vue%E5%AE%9E%E7%8E%B0web%E9%98%85%E8%AF%BB%E5%99%A8%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/</guid>
         <description>&lt;p&gt;本文先介绍开发前的准备工作（搭建静态资源服务器+图标生成+安装node.js环境），并通过vue命令生成vue-cli脚手架，形成项目开发框架。具体的阅读器功能实现见下篇。本次开发采用的是epub(电子书出版物)格式的电子书，目前比较主流的电子书阅读器对epub都有良好的支持。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;h3 id=&#34;图标生成&#34;&gt;图标生成&lt;/h3&gt;

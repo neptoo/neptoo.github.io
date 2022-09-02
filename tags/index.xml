@@ -6,20 +6,28 @@
         <description>Recent content in Tags on Neptoo&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 17 Aug 2022 18:01:47 +0000</lastBuildDate><atom:link href="https://neptoo.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>element-ui</title>
-        <link>https://neptoo.github.io/tags/element-ui/</link>
-        <pubDate>Wed, 17 Aug 2022 18:01:47 +0000</pubDate>
+        <lastBuildDate>Fri, 02 Sep 2022 10:13:24 +0000</lastBuildDate><atom:link href="https://neptoo.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>echarts</title>
+        <link>https://neptoo.github.io/tags/echarts/</link>
+        <pubDate>Fri, 02 Sep 2022 10:13:24 +0000</pubDate>
         
-        <guid>https://neptoo.github.io/tags/element-ui/</guid>
+        <guid>https://neptoo.github.io/tags/echarts/</guid>
         <description></description>
         </item>
         <item>
         <title>vue</title>
         <link>https://neptoo.github.io/tags/vue/</link>
-        <pubDate>Wed, 17 Aug 2022 18:01:47 +0000</pubDate>
+        <pubDate>Fri, 02 Sep 2022 10:13:24 +0000</pubDate>
         
         <guid>https://neptoo.github.io/tags/vue/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>element-ui</title>
+        <link>https://neptoo.github.io/tags/element-ui/</link>
+        <pubDate>Wed, 17 Aug 2022 18:01:47 +0000</pubDate>
+        
+        <guid>https://neptoo.github.io/tags/element-ui/</guid>
         <description></description>
         </item>
         <item>
@@ -84,14 +92,6 @@
         <pubDate>Wed, 26 Feb 2020 18:21:30 +0000</pubDate>
         
         <guid>https://neptoo.github.io/tags/themes/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>ECharts</title>
-        <link>https://neptoo.github.io/tags/echarts/</link>
-        <pubDate>Sun, 30 Jun 2019 12:09:22 +0000</pubDate>
-        
-        <guid>https://neptoo.github.io/tags/echarts/</guid>
         <description></description>
         </item>
         <item>

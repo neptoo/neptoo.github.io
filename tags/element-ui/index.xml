@@ -12,7 +12,7 @@
         <pubDate>Wed, 17 Aug 2022 18:01:47 +0000</pubDate>
         
         <guid>https://neptoo.github.io/2022/encapsulation-of-el-upload-display-an-image-after-uploading/</guid>
-        <description>&lt;img src="https://images.pexels.com/photos/3584996/pexels-photo-3584996.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Featured image of post Encapsulation of el upload - display an image after uploading" /&gt;&lt;p&gt;Prerequisite: You have installed Vue.js(^2.5.2) and ElementUI(^2.15.8) in your project.&lt;/p&gt;
+        <description>&lt;img src="https://images.pexels.com/photos/4201333/pexels-photo-4201333.jpeg" alt="Featured image of post Encapsulation of el upload - display an image after uploading" /&gt;&lt;p&gt;Prerequisite: You have installed Vue.js(^2.5.2) and ElementUI(^2.15.8) in your project.&lt;/p&gt;
 &lt;h2 id=&#34;creating-our-own-custom-components&#34;&gt;Creating our own custom components&lt;/h2&gt;
 &lt;h3 id=&#34;get-started-with-basic-html&#34;&gt;Get started with Basic HTML&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;

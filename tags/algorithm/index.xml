@@ -16,7 +16,7 @@
 &lt;p&gt;前端面试中算法题是比较难的一部分，今天总结下数据结构中的算法实现。&lt;/p&gt;
 &lt;h2 id=&#34;排序&#34;&gt;排序&lt;/h2&gt;
 &lt;h3 id=&#34;快速排序&#34;&gt;快速排序&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/neptoo/neptoo.github.io/master/img/quick.gif&#34;
+&lt;p&gt;&lt;img src=&#34;https://s3.bmp.ovh/imgs/2024/05/18/f9fd394d01279907.gif&#34;
 	
 	
 	
@@ -66,7 +66,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;冒泡排序&#34;&gt;冒泡排序&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/neptoo/neptoo.github.io/master/img/buble.gif&#34;
+&lt;p&gt;&lt;img src=&#34;https://s3.bmp.ovh/imgs/2024/05/18/60542763be304d6c.gif&#34;
 	
 	
 	
@@ -142,7 +142,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;插入排序&#34;&gt;插入排序&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/neptoo/neptoo.github.io/master/img/ins.gif&#34;
+&lt;p&gt;&lt;img src=&#34;https://s3.bmp.ovh/imgs/2024/05/18/e60150c93e496259.gif&#34;
 	
 	
 	

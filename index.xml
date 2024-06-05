@@ -5523,10 +5523,9 @@ com.mydomain.utils.myfun2();//输出 myfun2
         
         <guid>https://neptoo.github.io/about/</guid>
         <description>&lt;h3 id=&#34;简介&#34;&gt;简介&lt;/h3&gt;
-&lt;p&gt;常用 neptoo 這個英文昵称，因为取名字是很麻烦的事情。&lt;/p&gt;
-&lt;p&gt;现居武汉，19年毕业于信管专业，从事前端工作两年半，現在在找工作。&lt;/p&gt;
-&lt;p&gt;因為我很不太擅长自我介紹，所以我把我想到的事情全部記錄在這裡，以後有人要我自我介紹我就可以把這個網站丟給她，然後看完後大概就知道我是怎樣的人。&lt;/p&gt;
-&lt;p&gt;以下看完大約需要 3 ~ 5 分鐘。&lt;/p&gt;
+&lt;p&gt;常用 neptoo 这个英文昵称，因为取名字是很麻烦的事情。&lt;/p&gt;
+&lt;p&gt;因为我很不太擅长自我介绍，所以我把我想到的事情全部记录在这里，以后有人要我自我介绍我就可以把这个网站丢给她，然后看完后大概就知道我是怎样的人。&lt;/p&gt;
+&lt;p&gt;以下看完大约需要 3 ~ 5 分钟。&lt;/p&gt;
 &lt;h4 id=&#34;联系我&#34;&gt;联系我&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;heywuq@outlook.com&#34; &gt;邮箱&lt;/a&gt;&lt;/li&gt;
@@ -5535,13 +5534,27 @@ com.mydomain.utils.myfun2();//输出 myfun2
 &lt;/ul&gt;
 &lt;h3 id=&#34;我的个性&#34;&gt;我的个性&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;真诚：会直接的表达自己的感受，比如夸赞、喜爱、焦虑、害怕。&lt;/li&gt;
-&lt;li&gt;慢热，有时在思考对方的话，可能回应的比较慢。&lt;/li&gt;
-&lt;li&gt;可以主动和初次见面的人聊天，但取決于对方的回应。&lt;/li&gt;
-&lt;li&gt;容易紧张。&lt;/li&gt;
-&lt;li&gt;热衷于帮助别人：分享自己的经验，帮助别人解决问题。&lt;/li&gt;
-&lt;li&gt;遇到难题先分解：列出已知的必要条件，再慢慢补充，比一下子想到解决方法要容易很多。&lt;/li&gt;
-&lt;li&gt;基本上不挑食，会尽量吃完，除非食物本身不新鲜、或者太难吃。&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;真诚：会直接的表达自己的感受，比如夸赞、喜爱、焦虑、害怕。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;慢热，有时在思考对方的话，可能回应的比较慢。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以主动和初次见面的人聊天，但取决于对方的回应。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;容易紧张。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;热衷于帮助别人：分享自己的经验，帮助别人解决问题。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;遇到难题先分解：列出已知的必要条件，再慢慢补充，比一下子想到解决方法要容易很多。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;基本上不挑食，会尽量吃完，除非食物本身不新鲜、或者太难吃。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;价值观&#34;&gt;价值观&lt;/h3&gt;
 &lt;ul&gt;
@@ -5551,14 +5564,14 @@ com.mydomain.utils.myfun2();//输出 myfun2
 &lt;h3 id=&#34;雷点&#34;&gt;雷点&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;歧视女性、歧视少数群体、bodyshaming&lt;/li&gt;
-&lt;li&gt;急忙否定別人，扣帽子，不愿意认真听别人的话&lt;/li&gt;
+&lt;li&gt;急忙否定別人，不愿意认真听别人的话&lt;/li&gt;
 &lt;li&gt;承上，不尊重或者干涉他人的选择&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;兴趣&#34;&gt;兴趣&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;影：纪录片/POI&lt;/li&gt;
-&lt;li&gt;饮：坚持每天至少喝4杯水，经常喝的有茉莉花茶、菊花茶，山楂。&lt;/li&gt;
-&lt;li&gt;吃：偶尔做饭，偶尔堂食，禁外卖。&lt;/li&gt;
+&lt;li&gt;影：POI&lt;/li&gt;
+&lt;li&gt;饮：坚持每天至少喝4杯水&lt;/li&gt;
+&lt;li&gt;吃：偶尔做饭，偶尔堂食，禁外卖&lt;/li&gt;
 &lt;li&gt;音乐：英伦摇滚为主，也喜欢indie pop，目前喜欢的乐队/乐手有：
 &lt;ul&gt;
 &lt;li&gt;Pulp, Glass Animals&lt;/li&gt;
@@ -5593,11 +5606,11 @@ com.mydomain.utils.myfun2();//输出 myfun2
     &gt;Traversy Media&lt;/a&gt; : &lt;del&gt;北美阮一峰/FreeCodeCamp二代&lt;/del&gt;， 涉猎广，活跃，WEB开发和编程相关教程。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;技术相关&#34;&gt;技术相关&lt;/h3&gt;
-&lt;p&gt;這些是我遇到过、实际使用过、想要尝试的的技术。&lt;/p&gt;
+&lt;p&gt;這些是我遇到过、实际使用过、想要尝试的的技术&lt;/p&gt;
 &lt;h4 id=&#34;frontend&#34;&gt;Frontend&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;目前擅長的程式語言是 JavaScript&lt;/li&gt;
-&lt;li&gt;喜歡 UI 還有前端（瀏覽器）相關的新技術&lt;/li&gt;
+&lt;li&gt;目前擅长的程式语言是 JavaScript&lt;/li&gt;
+&lt;li&gt;喜欢 UI 还有前端相关的新技术&lt;/li&gt;
 &lt;li&gt;最常使用的前端框架是 &lt;code&gt;Vue&lt;/code&gt;
 &lt;ul&gt;
 &lt;li&gt;喜欢的技术栈组合（前端）是 Vue + vuex + Element UI + Axios+ flex，可以用来处理各种复杂的场合&lt;/li&gt;
@@ -5607,7 +5620,8 @@ com.mydomain.utils.myfun2();//输出 myfun2
 &lt;/li&gt;
 &lt;li&gt;使用过微信小程序 + Vant 对公司项目进行维护和开发，可以熟练使用&lt;/li&gt;
 &lt;li&gt;有用 tailwind 开发官网，是便携的、易上手的、拯救选择困难症的工具&lt;/li&gt;
-&lt;li&gt;比較沒有在特別的領域深耕，因此最近想要專注於
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;最近想要专注于
 &lt;ul&gt;
 &lt;li&gt;信息可视化 / storytelling&lt;/li&gt;
 &lt;li&gt;使用者互动、用户交互&lt;/li&gt;
@@ -5619,10 +5633,10 @@ com.mydomain.utils.myfun2();//输出 myfun2
 &lt;h4 id=&#34;backend--其他&#34;&gt;Backend / 其他&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;大学中主修的语言是 Java，有机会再去复习 iOS 开发以及 Swift&lt;/li&gt;
-&lt;li&gt;数据库：会写 SQL 语法。&lt;/li&gt;
+&lt;li&gt;数据库：会写 SQL 语法&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;结尾&#34;&gt;结尾&lt;/h4&gt;
-&lt;p&gt;這大概是我能告訴你關於我的一切，希望我們可以找到共同話題。&lt;/p&gt;
+&lt;p&gt;這大概是我能告訴你關於我的一切，希望我們可以找到共同話題&lt;/p&gt;
 </description>
         </item>
         <item>

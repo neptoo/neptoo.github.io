@@ -6,7 +6,63 @@
         <description>Recent content in Pages on Neptoo&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://neptoo.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 08 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://neptoo.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Resume</title>
+        <link>https://neptoo.github.io/resume/</link>
+        <pubDate>Sat, 08 Jun 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://neptoo.github.io/resume/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;邮箱：&lt;code&gt;heywuq@outlook.com&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;项目经历&#34;&gt;项目经历&lt;/h3&gt;
+&lt;h4 id=&#34;异纤机运维监控平台&#34;&gt;异纤机运维监控平台&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 Vue.js、ElementUI 和 SASS 开发和维护内部管理平台，进行代码重构和功能迭代&lt;/li&gt;
+&lt;li&gt;基于 ECharts 和百度地图 API 开发地图组件，展示1000+台设备分布，使用 WebSocket 实时推送数据状态&lt;/li&gt;
+&lt;li&gt;实现权限管理，不同账号角色展示不同菜单权限，保证系统的安全性&lt;/li&gt;
+&lt;li&gt;集成 TinyMCE 富文本编辑器，实现多图片上传、附件上传和富文本内容的管理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.bmp.ovh/imgs/2024/06/08/b994827f15db483b.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;screen&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;武汉智目智能官网---zoomcvcnhttpwwwzoomcvcn&#34;&gt;武汉智目智能官网 - &lt;a class=&#34;link&#34; href=&#34;http://www.zoomcv.cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;zoomcv.cn&lt;/a&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;使用原生 JavaScript 和 Tailwind 完成官网的从0到1开发，将设计转换为可交互的响应式界面&lt;/li&gt;
+&lt;li&gt;利用 Three.js 完成3D模型的渲染，增加交互效果，全方位展示公司产品&lt;/li&gt;
+&lt;li&gt;通过SEO优化提升网站搜索引擎排名，使得网站各项性能评分达到95分以上&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;卓小棉小程序&#34;&gt;卓小棉小程序&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;针对不同角色对设备管理需求，开发了树形结构的权限分配，实现了灵活的权限管理&lt;/li&gt;
+&lt;li&gt;设计并开发工单系统，实时通知和反馈结果，同时集成在线客服功能，有效提升用户会话率30%&lt;/li&gt;
+&lt;li&gt;开发小程序商城模块，实现商品展示、拖动式购物车、微信支付和订单追踪等功能，优化用户购物体验&lt;/li&gt;
+&lt;li&gt;使用VuePress编写&lt;a class=&#34;link&#34; href=&#34;https://zxm.zoomcv.cloud/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;软件说明书&lt;/a&gt;并发布上线，通过WebView集成到小程序页面中，提升用户的产品熟练度&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.bmp.ovh/imgs/2024/06/08/2878d39bb9d8f708.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;zxm&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;参考链接：&lt;a class=&#34;link&#34; href=&#34;https://mp.weixin.qq.com/s/Oa33XZqKP5WBExlm7g5hfg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;“卓小棉”小程序全新升级&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Archives</title>
         <link>https://neptoo.github.io/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>

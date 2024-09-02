@@ -6,7 +6,77 @@
         <description>Recent content in Posts on Neptoo&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 29 Jul 2024 15:02:10 +0800</lastBuildDate><atom:link href="https://neptoo.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 02 Sep 2024 17:06:00 +0800</lastBuildDate><atom:link href="https://neptoo.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Focumon 专注应用使用指南</title>
+        <link>https://neptoo.github.io/2024/focumon-%E4%B8%93%E6%B3%A8%E5%BA%94%E7%94%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+        <pubDate>Mon, 02 Sep 2024 17:06:00 +0800</pubDate>
+        
+        <guid>https://neptoo.github.io/2024/focumon-%E4%B8%93%E6%B3%A8%E5%BA%94%E7%94%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+        <description>&lt;img src="https://images.pexels.com/photos/355863/pexels-photo-355863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Featured image of post Focumon 专注应用使用指南" /&gt;&lt;h3 id=&#34;focumon是什么&#34;&gt;focumon是什么&lt;/h3&gt;
+&lt;p&gt;我是从三个月前开始使用的，非常适合自由安排自己时间的小伙伴。&lt;/p&gt;
+&lt;p&gt;类似Habitica，专注应用。以游戏的方式让你更好地专注于某个任务，利用某一段时间去集中地做一些事，很适合写论文或者做habit tracking（习惯追踪）。&lt;/p&gt;
+&lt;p&gt;吸引我玩下去的点就是：没有一般的效率工具那么枯燥，每天可以抽卡获取到新的focumon，很惊喜，期待抽到好看的皮肤或者宠物。&lt;/p&gt;
+&lt;p&gt;之前使用过番茄钟、滴答清单和时间记录（toggl）的网页或者软件，都有各自的缺点，最终没有继续用下去。比如初始功能太复杂，一次性建立太多的任务清单，其实更不利于启动，会降低开始干活的欲望。&lt;/p&gt;
+&lt;p&gt;每天早上我会在Obsidian列出当天的 to do list，然后打开 focumon，抽卡，选择一个focumon自习室开始专注，将focumon放在后台，开始专心做事，累了就查看下积累的休息时间，休息一下。&lt;/p&gt;
+&lt;p&gt;我通常会定好当天的主要任务，有时候也会安排好具体在某个时间段计划做什么事情，但是也不需要完全精确地执行，有时候把任务推迟半小时，或者留到明天也是可以的。调整好状态再去做，可以更好地提高学习或者工作效率。&lt;/p&gt;
+&lt;h3 id=&#34;focumon-tips&#34;&gt;focumon tips&lt;/h3&gt;
+&lt;p&gt;番茄钟的专注理念是专注25分钟休息5分钟，focumon是专注n分钟休息1/3*n的时间。&lt;/p&gt;
+&lt;p&gt;休息时间和专注时间一样是可以收集到材料的，所以focumon是鼓励休息的。每次专注30分钟，你就为自己赢得了10分钟的休息时间。也有小伙伴是反着来，专注时间去休息，休息时间再干活，适合自己的就是最好的。&lt;/p&gt;
+&lt;p&gt;首页Dashboard&amp;ndash;Focus，可以根据属性筛选房间，一开始我都是随便点进去一个好看的房间里训练，所有房间是根据属性值分类的，如果你的宠物是grass属性，你选择属性值相同的房间是会掉落升级材料的（grass++&amp;gt;grass+&amp;gt;grass）。&lt;/p&gt;
+&lt;p&gt;顶部菜单点击Focumon，可以看到你所有的focumon，可以根据稀有度排序。选择任意一只focumon，在宠物图片下方可以选择 set as focus buddy，即选择你下次进入房间时默认的陪伴宠物。点击图片下方望远镜一样的图标（find evolutional material），可以根据这个宠物属性默认分配适合的训练房间。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2024/09/02/WJarRcj3o6vP5EY.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cat&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;你会有自己的训练室，点击菜单&amp;ndash;My training center可以查看，每个训练室的有效时间是8小时，每天重新激活一下，会随机生成一个属性。你可以点击修改训练室的名字和介绍。如果你有超过6个focumon，可以在自己的训练室中按照自己喜欢的顺序放置focumon。在主页最底部你可以看到你选择的focumons和你的角色皮肤。&lt;/p&gt;
+&lt;p&gt;你在进入房间的时候可以填写一句话，可以是你要专注的任务主题，比如code/reading/workout等，会在你进入房间后展示给别人。如果不填默认就是paw-sitively focused，是 positively focused的谐音，但是有宠物陪伴版。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我遇到过的印象深刻的标语：“这个loot怎么就不掉啊”“为旅行收拾行李”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;进入专注房间后，你可以看到其他小人和它们的陪伴宠物，头上的标语是他们在做的事情，可以看到专注/休息状态，点击右边的cheer&amp;rsquo;em up!可以鼓励一下他们，或者给自己点个⭐鼓励自己，只有等你专注结束后可以在总结页面看到cheers数量，不会有消息打扰。&lt;/p&gt;
+&lt;p&gt;在房间训练的时候，每个一段时间可能会掉落Loot，可以理解为升级材料，非pro用户每天可以收集的loot是有一定的限制的。&lt;/p&gt;
+&lt;p&gt;进入房间后，点击take a break进入休息。点击左下方的小旗帜可以离开房间，结束你的本次训练，点击星星对此次训练进行评价总结或者打标签，都只会自己看到。&lt;/p&gt;
+&lt;p&gt;点击右上角菜单栏&amp;ndash;Setting&amp;ndash;Info下的Statistics，可以看到自己的统计数据。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2024/09/02/TFW7HKwQeNVSAYP.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;room&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;focumon目前唯一的社交功能就是可以加入群组（Party），可以一起打怪兽。&lt;/p&gt;
+&lt;p&gt;Events就是打怪兽，你可以加入一个Party，官方会定期推出特殊事件，你可以选择让你的队伍加入这个事件，选择你要出战的宠物，事件里有BOSS的数据，包含它的强项和弱点，尽量选择符合它的弱点属性的宠物，不要选boss擅长的属性。每一只focumon都有自己的等级，等级越高打出的伤害越大。打怪的方式就是在事件持续时间，多做专注训练，你用得越多，宠物升级越快，PWR伤害值就越大。这个事件机制有鼓励我更好地专注。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2024/09/02/MpZbT43jusWieKC.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;boss&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;bonus&#34;&gt;Bonus&lt;/h4&gt;
+&lt;p&gt;如果你使用后感兴趣，可以在 &lt;a class=&#34;link&#34; href=&#34;https://www.focumon.com/community&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这里&lt;/a&gt; 填我的邀请码&lt;code&gt;@vickyoo&lt;/code&gt;，被邀请者可以获得6个💎，如果我能够攒够5个人就可以获得道具，升级我的focumon。&lt;/p&gt;
+&lt;h4 id=&#34;links&#34;&gt;Links&lt;/h4&gt;
+&lt;p&gt;如果你对focumon感兴趣，可以查看这些象友的博客：&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://thirdshire.com/procrastination/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;克服启动困难和拖延症的 N 种尝试&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tortie.me/focumon/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;工具｜一个 Focumon 小地图&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>React和CSS实现自动轮播组件</title>
         <link>https://neptoo.github.io/2024/react%E5%92%8Ccss%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E8%BD%AE%E6%92%AD%E7%BB%84%E4%BB%B6/</link>
         <pubDate>Mon, 29 Jul 2024 15:02:10 +0800</pubDate>

@@ -61,8 +61,8 @@
                     
                     
                         
-                        <img src="/img/avatar_huab5e6b16082a7706760c67acf8212b68_47772_300x0_resize_q75_box.jpg" width="300"
-                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                        <img src="/img/avatar_hu3d0e6af4c9aa7a15c7c715e872d62844_1663_300x0_resize_box_3.png" width="300"
+                            height="288" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
                 </a>
@@ -314,19 +314,59 @@
 ></p>
 <h3 id="引入-library">引入 Library</h3>
 <p>首先，引入需要的js库，可以从 <a class="link" href="https://github.com/mrdoob/three.js/"  target="_blank" rel="noopener"
-    >three.js 官方github仓库</a>中找到并下载，你可能会用到的：</p>
+    >three.js 官方github仓库
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a>中找到并下载，你可能会用到的：</p>
 <ul>
 <li>three.js</li>
 <li>OrbitControls.js</li>
 <li><a class="link" href="https://github.com/mrdoob/three.js/blob/dev/examples/js/loaders/GLTFLoader.js"  target="_blank" rel="noopener"
-    >GLTFLoader.js</a></li>
+    >GLTFLoader.js
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a></li>
 <li><a class="link" href="https://github.com/mrdoob/three.js/blob/dev/examples/js/loaders/RGBELoader.js"  target="_blank" rel="noopener"
-    >RGBELoader.js</a></li>
+    >RGBELoader.js
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a></li>
 </ul>
 <blockquote>
 <p>前两个是必须用到的，最后一个是根据你使用的文件格式，选择不同的 loader 处理器。我还尝试过  <a class="link" href="https://github.com/mrdoob/three.js/blob/dev/examples/js/loaders/STLLoader.js"  target="_blank" rel="noopener"
-    >STLLoader</a> 和  <a class="link" href="https://github.com/mrdoob/three.js/blob/dev/examples/js/loaders/FBXLoader.js"  target="_blank" rel="noopener"
-    >FBXLoader</a> 。</p>
+    >STLLoader
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a> 和  <a class="link" href="https://github.com/mrdoob/three.js/blob/dev/examples/js/loaders/FBXLoader.js"  target="_blank" rel="noopener"
+    >FBXLoader
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a> 。</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -530,7 +570,15 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>你可以在 <a class="link" href="https://polyhaven.com/hdris"  target="_blank" rel="noopener"
-    >HDR 资源网站</a>下载你需要的 hdr 文件&ndash;可以理解为全景图。</p>
+    >HDR 资源网站
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a>下载你需要的 hdr 文件&ndash;可以理解为全景图。</p>
 <h4 id="完工">完工</h4>
 <p>调用上面的方法，将模型和我们前面定义的页面元素绑定起来。</p>
 <div class="highlight"><div class="chroma">
@@ -821,11 +869,35 @@
 </div>
 </div><h3 id="参考资料">参考资料</h3>
 <p><a class="link" href="https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene"  target="_blank" rel="noopener"
-    >Three.js 官方文档</a></p>
+    >Three.js 官方文档
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a></p>
 <p><a class="link" href="https://isux.tencent.com/articles/isux-optimizing-3d-model.html"  target="_blank" rel="noopener"
-    >如何在页面极速渲染3D模型-腾讯 ISUX 团队</a></p>
+    >如何在页面极速渲染3D模型-腾讯 ISUX 团队
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a></p>
 <p><a class="link" href="https://blog.csdn.net/weixin_43990650/article/details/121991461"  target="_blank" rel="noopener"
-    >Three.js 真实渲染</a></p>
+    >Three.js 真实渲染
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a></p>
 
 </section>
 
@@ -956,7 +1028,7 @@
     		
 	
         2024 Neptoo&#39;s Blog<br>
-        共嘟嘟了 22641 字<span> · 16篇</br><p>
+        共嘟嘟了 22632 字<span> · 16篇</br><p>
     </section>
     
     <section class="powerby">

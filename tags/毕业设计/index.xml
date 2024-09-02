@@ -14,7 +14,15 @@
         <guid>https://neptoo.github.io/2019/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E4%B8%8Bvue-elementui-echarts%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
         <description>&lt;img src="https://neptoo.github.io/2019/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E4%B8%8Bvue-elementui-echarts%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/grad.png" alt="Featured image of post 毕业设计(下):Vue&#43;ElementUI&#43;ECharts实现前端数据可视化" /&gt;&lt;p&gt;毕业设计最终项目成果展示：&lt;a class=&#34;link&#34; href=&#34;https://github.com/neptoo/recruitment-data-admin&#34;  title=&#34;点击查看&#34;
      target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;点击查看&lt;/a&gt;&lt;/p&gt;
+    &gt;点击查看
+&lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+    height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+    &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+        fill=&#34;currentColor&#34;&gt;
+&lt;/svg&gt;&lt;/span&gt;
+
+&lt;/a&gt;&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;基础配置&#34;&gt;基础配置&lt;/h2&gt;
 &lt;h3 id=&#34;安装echarts依赖&#34;&gt;安装ECharts依赖&lt;/h3&gt;
@@ -562,16 +570,40 @@
         <description>&lt;p&gt;毕业设计主题是数据可视化，选择的技术栈是Vue2.0，数据库选的是MySQL，首先需要解决的就是前端连接数据库的问题。
 本文基于&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/wantingtr/article/details/84482736&#34;  title=&#34;前端网站连接MySQL数据库&#34;
      target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;前端网站连接MySQL数据库&lt;/a&gt;和&lt;a class=&#34;link&#34; href=&#34;https://segmentfault.com/a/1190000011288053&#34;  title=&#34;Node&amp;#43;Mysql&amp;#43;Vue实现登录注册功能&#34;
+    &gt;前端网站连接MySQL数据库
+&lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+    height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+    &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+        fill=&#34;currentColor&#34;&gt;
+&lt;/svg&gt;&lt;/span&gt;
+
+&lt;/a&gt;和&lt;a class=&#34;link&#34; href=&#34;https://segmentfault.com/a/1190000011288053&#34;  title=&#34;Node&amp;#43;Mysql&amp;#43;Vue实现登录注册功能&#34;
      target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Node+Mysql+Vue实现登录注册功能&lt;/a&gt;，手把手教你使用前端连接数据库，实现增删改查。&lt;/p&gt;
+    &gt;Node+Mysql+Vue实现登录注册功能
+&lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+    height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+    &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+        fill=&#34;currentColor&#34;&gt;
+&lt;/svg&gt;&lt;/span&gt;
+
+&lt;/a&gt;，手把手教你使用前端连接数据库，实现增删改查。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;项目初始化&#34;&gt;项目初始化&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;使用vue-cli搭建一个基于webpack的vue2.0项目，使用脚手架生成项目框架。&lt;/li&gt;
 &lt;li&gt;安装mysql数据库，附上&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/qq_29651203/article/details/78833024&#34;  title=&#34;mysql安装教程&#34;
      target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;mysql安装教程&lt;/a&gt;，然后安装navicat for mysql，推荐使用mysql的图形化界面管理数据库。&lt;/li&gt;
+    &gt;mysql安装教程
+&lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+    height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+    &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+        fill=&#34;currentColor&#34;&gt;
+&lt;/svg&gt;&lt;/span&gt;
+
+&lt;/a&gt;，然后安装navicat for mysql，推荐使用mysql的图形化界面管理数据库。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;添加服务端目录&#34;&gt;添加服务端目录&lt;/h2&gt;
 &lt;p&gt;在项目根目录下新建server文件夹，目录结构如下&lt;/p&gt;
@@ -597,7 +629,15 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;db.js为mysql数据库基本配置信息，index.js用来定义与监听后端服务器，sqlMap.js是SQL语句映射文件，以供api逻辑调用。&lt;a class=&#34;link&#34; href=&#34;https://segmentfault.com/a/1190000008176208#articleHeader1&#34;  title=&#34;原代码&#34;
      target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;原代码&lt;/a&gt;基本上无需更改。&lt;/p&gt;
+    &gt;原代码
+&lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+    height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+    &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+        fill=&#34;currentColor&#34;&gt;
+&lt;/svg&gt;&lt;/span&gt;
+
+&lt;/a&gt;基本上无需更改。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -1037,16 +1077,48 @@
 &lt;/div&gt;&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
 &lt;p&gt;[1]&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/wantingtr/article/details/84482736&#34;  title=&#34;前端网站连接MySQL数据库&#34;
      target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;前端网站连接MySQL数据库&lt;/a&gt;&lt;/p&gt;
+    &gt;前端网站连接MySQL数据库
+&lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+    height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+    &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+        fill=&#34;currentColor&#34;&gt;
+&lt;/svg&gt;&lt;/span&gt;
+
+&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;[2]&lt;a class=&#34;link&#34; href=&#34;https://segmentfault.com/a/1190000011288053&#34;  title=&#34;Node&amp;#43;Mysql&amp;#43;Vue实现登录注册功能&#34;
      target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Node+Mysql+Vue实现登录注册功能&lt;/a&gt;&lt;/p&gt;
+    &gt;Node+Mysql+Vue实现登录注册功能
+&lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+    height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+    &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+        fill=&#34;currentColor&#34;&gt;
+&lt;/svg&gt;&lt;/span&gt;
+
+&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;[3]&lt;a class=&#34;link&#34; href=&#34;https://segmentfault.com/a/1190000008176208&#34;  title=&#34;Vue&amp;#43;MySQL&amp;#43;Express小试牛刀&#34;
      target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Vue+MySQL+Express小试牛刀&lt;/a&gt;&lt;/p&gt;
+    &gt;Vue+MySQL+Express小试牛刀
+&lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+    height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+    &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+        fill=&#34;currentColor&#34;&gt;
+&lt;/svg&gt;&lt;/span&gt;
+
+&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;[4]&lt;a class=&#34;link&#34; href=&#34;https://github.com/neptoo/recruitment-data-admin&#34;  title=&#34;项目完整代码&#34;
      target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;项目完整代码&lt;/a&gt;&lt;/p&gt;
+    &gt;项目完整代码
+&lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+    height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+    &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+        fill=&#34;currentColor&#34;&gt;
+&lt;/svg&gt;&lt;/span&gt;
+
+&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
         

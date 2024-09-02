@@ -60,8 +60,8 @@
                     
                     
                         
-                        <img src="/img/avatar_huab5e6b16082a7706760c67acf8212b68_47772_300x0_resize_q75_box.jpg" width="300"
-                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                        <img src="/img/avatar_hu3d0e6af4c9aa7a15c7c715e872d62844_1663_300x0_resize_box_3.png" width="300"
+                            height="288" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
                 </a>
@@ -288,16 +288,40 @@
     <p>毕业设计主题是数据可视化，选择的技术栈是Vue2.0，数据库选的是MySQL，首先需要解决的就是前端连接数据库的问题。
 本文基于<a class="link" href="https://blog.csdn.net/wantingtr/article/details/84482736"  title="前端网站连接MySQL数据库"
      target="_blank" rel="noopener"
-    >前端网站连接MySQL数据库</a>和<a class="link" href="https://segmentfault.com/a/1190000011288053"  title="Node&#43;Mysql&#43;Vue实现登录注册功能"
+    >前端网站连接MySQL数据库
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a>和<a class="link" href="https://segmentfault.com/a/1190000011288053"  title="Node&#43;Mysql&#43;Vue实现登录注册功能"
      target="_blank" rel="noopener"
-    >Node+Mysql+Vue实现登录注册功能</a>，手把手教你使用前端连接数据库，实现增删改查。</p>
+    >Node+Mysql+Vue实现登录注册功能
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a>，手把手教你使用前端连接数据库，实现增删改查。</p>
 <!-- raw HTML omitted -->
 <h2 id="项目初始化">项目初始化</h2>
 <ol>
 <li>使用vue-cli搭建一个基于webpack的vue2.0项目，使用脚手架生成项目框架。</li>
 <li>安装mysql数据库，附上<a class="link" href="https://blog.csdn.net/qq_29651203/article/details/78833024"  title="mysql安装教程"
      target="_blank" rel="noopener"
-    >mysql安装教程</a>，然后安装navicat for mysql，推荐使用mysql的图形化界面管理数据库。</li>
+    >mysql安装教程
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a>，然后安装navicat for mysql，推荐使用mysql的图形化界面管理数据库。</li>
 </ol>
 <h2 id="添加服务端目录">添加服务端目录</h2>
 <p>在项目根目录下新建server文件夹，目录结构如下</p>
@@ -323,7 +347,15 @@
 </div>
 </div><p>db.js为mysql数据库基本配置信息，index.js用来定义与监听后端服务器，sqlMap.js是SQL语句映射文件，以供api逻辑调用。<a class="link" href="https://segmentfault.com/a/1190000008176208#articleHeader1"  title="原代码"
      target="_blank" rel="noopener"
-    >原代码</a>基本上无需更改。</p>
+    >原代码
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a>基本上无需更改。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -763,16 +795,48 @@
 </div><h2 id="参考">参考</h2>
 <p>[1]<a class="link" href="https://blog.csdn.net/wantingtr/article/details/84482736"  title="前端网站连接MySQL数据库"
      target="_blank" rel="noopener"
-    >前端网站连接MySQL数据库</a></p>
+    >前端网站连接MySQL数据库
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a></p>
 <p>[2]<a class="link" href="https://segmentfault.com/a/1190000011288053"  title="Node&#43;Mysql&#43;Vue实现登录注册功能"
      target="_blank" rel="noopener"
-    >Node+Mysql+Vue实现登录注册功能</a></p>
+    >Node+Mysql+Vue实现登录注册功能
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a></p>
 <p>[3]<a class="link" href="https://segmentfault.com/a/1190000008176208"  title="Vue&#43;MySQL&#43;Express小试牛刀"
      target="_blank" rel="noopener"
-    >Vue+MySQL+Express小试牛刀</a></p>
+    >Vue+MySQL+Express小试牛刀
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a></p>
 <p>[4]<a class="link" href="https://github.com/neptoo/recruitment-data-admin"  title="项目完整代码"
      target="_blank" rel="noopener"
-    >项目完整代码</a></p>
+    >项目完整代码
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a></p>
 
 </section>
 
@@ -909,7 +973,7 @@
     		
 	
         2024 Neptoo&#39;s Blog<br>
-        共嘟嘟了 22641 字<span> · 16篇</br><p>
+        共嘟嘟了 22632 字<span> · 16篇</br><p>
     </section>
     
     <section class="powerby">

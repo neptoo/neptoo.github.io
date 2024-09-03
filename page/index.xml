@@ -87,7 +87,7 @@
 </description>
         </item>
         <item>
-        <title>Archives</title>
+        <title>归档 | Archives</title>
         <link>https://neptoo.github.io/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
@@ -95,11 +95,11 @@
         <description></description>
         </item>
         <item>
-        <title>About</title>
-        <link>https://neptoo.github.io/about/</link>
+        <title>关于 | About</title>
+        <link>https://neptoo.github.io/%E5%85%B3%E4%BA%8E-about/</link>
         <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
         
-        <guid>https://neptoo.github.io/about/</guid>
+        <guid>https://neptoo.github.io/%E5%85%B3%E4%BA%8E-about/</guid>
         <description>&lt;h3 id=&#34;简介&#34;&gt;简介&lt;/h3&gt;
 &lt;p&gt;因为我很不太擅长自我介绍，所以我把我想到的事情全部记录在这里，以后有人要我自我介绍我就可以把这个网站丢给她，然后看完后大概就知道我是怎样的人。&lt;/p&gt;
 &lt;p&gt;以下看完大约需要 3 ~ 5 分钟。&lt;/p&gt;
@@ -225,7 +225,7 @@
 </description>
         </item>
         <item>
-        <title>Search</title>
+        <title>搜索 | Search</title>
         <link>https://neptoo.github.io/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         

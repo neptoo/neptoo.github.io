@@ -6004,14 +6004,13 @@ com.mydomain.utils.myfun2();//输出 myfun2
 </description>
         </item>
         <item>
-        <title>About</title>
+        <title>关于 | About</title>
         <link>https://neptoo.github.io/about/</link>
         <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
         
         <guid>https://neptoo.github.io/about/</guid>
         <description>&lt;h3 id=&#34;简介&#34;&gt;简介&lt;/h3&gt;
 &lt;p&gt;因为我很不太擅长自我介绍，所以我把我想到的事情全部记录在这里，以后有人要我自我介绍我就可以把这个网站丢给她，然后看完后大概就知道我是怎样的人。&lt;/p&gt;
-&lt;p&gt;以下看完大约需要 3 ~ 5 分钟。&lt;/p&gt;
 &lt;h4 id=&#34;联系我&#34;&gt;联系我&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;heywuq@outlook.com&#34; &gt;邮箱

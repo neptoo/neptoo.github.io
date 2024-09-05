@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="前言 在屏幕可视区域内创建多个小球，每个小球的颜色、大小和初始速度都是随机的。 初始化的时候，小球会随机出现在屏幕中的任意位置，碰撞到水平线或者" /><title>HTML5 Canvas 实现带重力效果的碰撞小球</title>
+
+<link rel="canonical" href="https://neptoo.github.io/2024/html5-canvas-%E5%AE%9E%E7%8E%B0%E5%B8%A6%E9%87%8D%E5%8A%9B%E6%95%88%E6%9E%9C%E7%9A%84%E7%A2%B0%E6%92%9E%E5%B0%8F%E7%90%83/" />
+
+<link rel="stylesheet" href="/scss/style.min.5e6627e99f2d6597a31fd97a8c21a4d1c4d65f76d4cb807e869a8f9faec00434.css"><meta property='og:title' content='HTML5 Canvas 实现带重力效果的碰撞小球'>
+<meta property='og:description' content='前言 在屏幕可视区域内创建多个小球，每个小球的颜色、大小和初始速度都是随机的。 初始化的时候，小球会随机出现在屏幕中的任意位置，碰撞到水平线或者'>
+<meta property='og:url' content='https://neptoo.github.io/2024/html5-canvas-%E5%AE%9E%E7%8E%B0%E5%B8%A6%E9%87%8D%E5%8A%9B%E6%95%88%E6%9E%9C%E7%9A%84%E7%A2%B0%E6%92%9E%E5%B0%8F%E7%90%83/'>
+<meta property='og:site_name' content='Neptoo&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='可视化' /><meta property='article:tag' content='canvas' /><meta property='article:published_time' content='2024-09-05T15:44:12&#43;08:00'/><meta property='article:modified_time' content='2024-09-05T15:44:12&#43;08:00'/><meta property='og:image' content='https://images.pexels.com/photos/60582/newton-s-cradle-balls-sphere-action-60582.jpeg?auto=compress&cs=tinysrgb' />
+<meta name="twitter:title" content="HTML5 Canvas 实现带重力效果的碰撞小球">
+<meta name="twitter:description" content="前言 在屏幕可视区域内创建多个小球，每个小球的颜色、大小和初始速度都是随机的。 初始化的时候，小球会随机出现在屏幕中的任意位置，碰撞到水平线或者"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://images.pexels.com/photos/60582/newton-s-cradle-balls-sphere-action-60582.jpeg?auto=compress&cs=tinysrgb' />
+<link rel="shortcut icon" href="/img/favicon.png" />
+
+
+<script defer src="https://cn.vercount.one/js"></script>
+
+<script
+  defer
+  src="https://cloud.umami.is/script.js"
+  data-website-id="76a79936-2992-4aa9-89da-b5912389e3f6"
+></script>
+
+<style>
+  :root {
+    --article-font-family: "Noto Serif SC", var(--base-font-family);
+  }
+</style>
+<script>
+  
+  (function () {
+    const customFont = document.createElement("link");
+    customFont.href =
+      "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap";
+
+    customFont.type = "text/css";
+    customFont.rel = "stylesheet";
+
+    document.head.appendChild(customFont);
+  })();
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu3d0e6af4c9aa7a15c7c715e872d62844_1663_300x0_resize_box_3.png" width="300"
+                            height="288" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🌈</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Neptoo&#39;s Blog</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='mailto:heywuq@outlook.com'
+                        target="_blank"
+                        title="Email"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/neptoo'
+                        target="_blank"
+                        title="GitHub"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页 | Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于 | About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档 | Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索 | Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>Dark Mode</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+<main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/2024/html5-canvas-%E5%AE%9E%E7%8E%B0%E5%B8%A6%E9%87%8D%E5%8A%9B%E6%95%88%E6%9E%9C%E7%9A%84%E7%A2%B0%E6%92%9E%E5%B0%8F%E7%90%83/">
+                
+                    <img src="https://images.pexels.com/photos/60582/newton-s-cradle-balls-sphere-action-60582.jpeg?auto=compress&amp;cs=tinysrgb" loading="lazy" alt="Featured image of post HTML5 Canvas 实现带重力效果的碰撞小球" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/2024/html5-canvas-%E5%AE%9E%E7%8E%B0%E5%B8%A6%E9%87%8D%E5%8A%9B%E6%95%88%E6%9E%9C%E7%9A%84%E7%A2%B0%E6%92%9E%E5%B0%8F%E7%90%83/">HTML5 Canvas 实现带重力效果的碰撞小球</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-09-05</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="前言">前言</h2>
+<p>在屏幕可视区域内创建多个小球，每个小球的颜色、大小和初始速度都是随机的。
+初始化的时候，小球会随机出现在屏幕中的任意位置，碰撞到水平线或者垂直线上（屏幕边缘），会对速度产生一定的影响，因为重力效果，小球最终会停留在水平线上，或者以一定的速度在水平线上左右运动。</p>
+<h2 id="效果预览">效果预览</h2>
+<p><img src="https://s3.bmp.ovh/imgs/2024/09/05/24f65f080d169b35.gif"
+	
+	
+	
+	loading="lazy"
+	
+		alt="跳动的小球"
+	
+	
+></p>
+<h2 id="实现步骤">实现步骤</h2>
+<h3 id="画一个小球">画一个小球</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">canvas</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// 获取元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;canvas&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 设置画布的宽高 不能通过CSS设置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 获取上下文 Canvas所有API(绘制图形)都是基于上下文
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&#34;2d&#34;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>定义创建球的函数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Circle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">radius</span><span class="p">,</span> <span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 坐标点x,y 半径 颜色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">=</span> <span class="nx">radius</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">draw</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span> <span class="c1">// 绘制路径 开始
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span> <span class="c1">// 画一个整圆，半圆是Math.PI
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="p">;</span> <span class="c1">// 设置要填充的颜色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span> <span class="c1">// 给图形填充颜色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span> <span class="c1">//绘制路径结束
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>调用方法实例化一个球</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">ball</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ball</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样，就完成了一个小球的绘制。</p>
+<blockquote>
+<p>如果Canvas画布并不等于屏幕可视区域，屏幕边缘有滚动条，怎么解决？</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 清除默认样式 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="让球动起来">让球动起来</h3>
+<p>更新球的位置，限制球在屏幕内跳动</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">friction</span> <span class="o">=</span> <span class="mf">0.98</span><span class="p">;</span> <span class="c1">// 摩擦系数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">gravity</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 重力
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Circle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">dx</span><span class="p">,</span> <span class="nx">dy</span><span class="p">,</span> <span class="nx">radius</span><span class="p">,</span> <span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 坐标点x,y 半径 颜色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// dx x轴方向的速度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// dy y轴方向的速度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">dx</span> <span class="o">=</span> <span class="nx">dx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">dy</span> <span class="o">=</span> <span class="nx">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">=</span> <span class="nx">radius</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">draw</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 控制球在可视范围内/Canvas画布内
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">dy</span> <span class="o">&gt;</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="nx">dy</span> <span class="o">=</span> <span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="nx">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// x方向 撞击到屏幕墙壁 就反向
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">dx</span> <span class="o">&gt;</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">&lt;=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// this.x + this.radius + this.dx 是判断下一次move 是否会超过边界
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">dx</span> <span class="o">=</span> <span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="nx">dx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">dx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用requestAnimationFrame，让动画按照屏幕帧率执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">ball</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">animate</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">animate</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 每屏绘制都要清除上一次的绘制 不然就会一直叠加 会把行动轨迹都绘制出来
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">ctx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">ball</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">animate</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="增加重力效果和摩擦系数">增加重力效果和摩擦系数</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">friction</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">;</span> <span class="c1">// 摩擦系数 系数越大 这些球恢复平静的时间就越久
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">gravity</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 重力
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Circle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">dx</span><span class="p">,</span> <span class="nx">dy</span><span class="p">,</span> <span class="nx">radius</span><span class="p">,</span> <span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 坐标点x,y 半径 颜色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// dx x轴方向的速度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// dy y轴方向的速度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nx">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">dx</span> <span class="o">=</span> <span class="nx">dx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">dy</span> <span class="o">=</span> <span class="nx">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">=</span> <span class="nx">radius</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">draw</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span> <span class="c1">// 加上边框
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">ctx</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">this</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="nx">dy</span> <span class="o">=</span> <span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="nx">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">dy</span> <span class="o">&gt;</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 每次撞击到地面，速度会降低（摩擦力）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">dy</span> <span class="o">=</span> <span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="nx">dy</span> <span class="o">*</span> <span class="nx">friction</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// 在空中的时候 都有一个垂直方向的重力 对y轴速度产生影响
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">dy</span> <span class="o">+=</span> <span class="nx">gravity</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// x方向 撞击到屏幕墙壁 就反向
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">dx</span> <span class="o">&gt;</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">&lt;=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// this.x + this.radius + this.dx 是判断下一次move 是否会超过边界
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">dx</span> <span class="o">=</span> <span class="o">-</span><span class="k">this</span><span class="p">.</span><span class="nx">dx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">dx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="k">this</span><span class="p">.</span><span class="nx">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="创建多个球-分散在屏幕任意位置">创建多个球 分散在屏幕任意位置</h3>
+<h4 id="获取任意范围内的整数">获取任意范围内的整数</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">randomIntFromRange</span><span class="p">(</span><span class="nx">min</span><span class="p">,</span> <span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="nx">max</span> <span class="o">-</span> <span class="nx">min</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nx">min</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="获取任意颜色">获取任意颜色</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">getRandomColor</span><span class="p">(</span><span class="nx">colors</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">colors</span><span class="p">[</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">)];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="给多个球分配任意大小速度和屏幕内任意位置">给多个球分配任意大小、速度和屏幕内任意位置</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">ballArray</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;#de324c&#34;</span><span class="p">,</span> <span class="s2">&#34;#f4895f&#34;</span><span class="p">,</span> <span class="s2">&#34;#f8e16f&#34;</span><span class="p">,</span> <span class="s2">&#34;#95cf92&#34;</span><span class="p">,</span> <span class="s2">&#34;#369acc&#34;</span><span class="p">,</span> <span class="s2">&#34;#9656a2&#34;</span><span class="p">];</span> <span class="c1">// 一些好看的颜色合集
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">init</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">radius</span> <span class="o">=</span> <span class="nx">randomIntFromRange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">randomIntFromRange</span><span class="p">(</span><span class="nx">radius</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">-</span> <span class="nx">radius</span><span class="p">);</span> <span class="c1">// 不能溢出屏幕
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">randomIntFromRange</span><span class="p">(</span><span class="nx">radius</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span> <span class="o">-</span> <span class="nx">radius</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">dx</span> <span class="o">=</span> <span class="nx">randomIntFromRange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">dy</span> <span class="o">=</span> <span class="nx">randomIntFromRange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">color</span> <span class="o">=</span> <span class="nx">getRandomColor</span><span class="p">(</span><span class="nx">colors</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ballArray</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">dx</span><span class="p">,</span> <span class="nx">dy</span><span class="p">,</span> <span class="nx">radius</span><span class="p">,</span> <span class="nx">color</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">animate</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">animate</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 每屏绘制都要清除上一次的绘制 不然就会一直叠加 会把行动轨迹都绘制出来
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">ctx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// ball.update();
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">ballArray</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ballArray</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">init</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">animate</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="点击屏幕任意位置再次实现动效">点击屏幕任意位置，再次实现动效</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;click&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">init</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="屏幕自适应">屏幕自适应</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;resize&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">init</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="源码链接">源码链接</h2>
+<p>最后附上<a class="link" href="https://codepen.io/neptoo/full/OJeodoe"  target="_blank" rel="noopener"
+    >Codepen 在线地址
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span>
+
+</a>，喜欢的可以点个💛</p>
+<blockquote>
+<p>Job searching can be exhausting, and I&rsquo;m not sure if I&rsquo;ll find my dream job. So, for now, let&rsquo;s take a break and enjoy some fun coding</p>
+</blockquote>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/">可视化</a>
+        
+            <a href="/tags/canvas/">canvas</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="neptoo/hugo-comment"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+
+	
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+        2024 Neptoo&#39;s Blog<br>
+        共嘟嘟了 23797 字<span> · 17篇</br><p>
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
+
+<div class="busuanzi-footer">
+  <span id="busuanzi_container_site_pv">
+    总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span id="busuanzi_container_site_uv">
+    总访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</div></section>
+
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#效果预览">效果预览</a></li>
+    <li><a href="#实现步骤">实现步骤</a>
+      <ol>
+        <li><a href="#画一个小球">画一个小球</a></li>
+        <li><a href="#让球动起来">让球动起来</a></li>
+        <li><a href="#增加重力效果和摩擦系数">增加重力效果和摩擦系数</a></li>
+        <li><a href="#创建多个球-分散在屏幕任意位置">创建多个球 分散在屏幕任意位置</a>
+          <ol>
+            <li><a href="#获取任意范围内的整数">获取任意范围内的整数</a></li>
+            <li><a href="#获取任意颜色">获取任意颜色</a></li>
+            <li><a href="#给多个球分配任意大小速度和屏幕内任意位置">给多个球分配任意大小、速度和屏幕内任意位置</a></li>
+            <li><a href="#点击屏幕任意位置再次实现动效">点击屏幕任意位置，再次实现动效</a></li>
+            <li><a href="#屏幕自适应">屏幕自适应</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#源码链接">源码链接</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+
+    </body>
+</html>

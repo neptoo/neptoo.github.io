@@ -100,6 +100,228 @@
 &lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
+        <item>
+        <title>Actual Budget: 使用信封预算法高效管理财务</title>
+        <link>https://neptoo.github.io/2024/actual-budget-%E4%BD%BF%E7%94%A8%E4%BF%A1%E5%B0%81%E9%A2%84%E7%AE%97%E6%B3%95%E9%AB%98%E6%95%88%E7%AE%A1%E7%90%86%E8%B4%A2%E5%8A%A1/</link>
+        <pubDate>Sat, 09 Mar 2024 15:16:37 +0800</pubDate>
+        
+        <guid>https://neptoo.github.io/2024/actual-budget-%E4%BD%BF%E7%94%A8%E4%BF%A1%E5%B0%81%E9%A2%84%E7%AE%97%E6%B3%95%E9%AB%98%E6%95%88%E7%AE%A1%E7%90%86%E8%B4%A2%E5%8A%A1/</guid>
+        <description>&lt;img src="https://images.pexels.com/photos/7054399/pexels-photo-7054399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Featured image of post Actual Budget: 使用信封预算法高效管理财务" /&gt;&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
+&lt;p&gt;这些年一直在陆续使用这种记账软件或者app，因为隐私问题所以我不会采用绑定微信支付/支付宝支付/银行卡的方式去自动记账。手动记账可能因为支付平台过多，容易忘记。去年我坚持使用notion一年多的时间去记录流水账，但是每个月和到了年底总结的时候，我也只能知道自己的消费概况，实在没有什么有用的信息。&lt;/p&gt;
+&lt;h3 id=&#34;信封预算法&#34;&gt;信封预算法&lt;/h3&gt;
+&lt;p&gt;然后今年在社交平台上了解到了&lt;code&gt;信封预算法&lt;/code&gt;，所谓&lt;code&gt;信封预算法&lt;/code&gt;就是每个月初/发工资那天根据银行卡余额去进行预算规划，按照不同类的开支，将钱存到「信封」里。&lt;/p&gt;
+&lt;p&gt;比如将生活费分为以下几类，一类是房租水电会员费等硬性开支，一类是食品水果衣服百货兴趣爱好等灵活性支出，一类是预防家人生病住院等紧急支出，以及一笔定期存款。这样就不容易超支了。比如我每个月会分配一比较小数额的钱给外卖，如果这个月尽量多在家里做饭，剩下的这笔钱就可以留到娱乐类，存下来去购买喜欢的电子产品，来奖励自己。&lt;/p&gt;
+&lt;p&gt;如果某一项不小心超支了的话，你就需要从另外一类里挪过去，削减它的额度。如果你不想挪用其它开支，后面你就会有意识地控制自己不去过多消费这类产品。这种记账方式就可以让你每个月做规划的时候，去调节自己的生活习惯，从预算去影响我们的消费行为。&lt;/p&gt;
+&lt;p&gt;最有名的最流行的采用&lt;code&gt;信封预算法&lt;/code&gt;的软件应该就是YNAB(you-need-a-budget)，但是订阅年费99刀。如果坐标在欧美地区，推荐使用&lt;strong&gt;YNAB&lt;/strong&gt;，具体介绍参照&lt;a class=&#34;link&#34; href=&#34;https://thirdshire.com/post/why-ynab-is-the-best/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这篇博主的文章
+&lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+    height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+    &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+        fill=&#34;currentColor&#34;&gt;
+&lt;/svg&gt;&lt;/span&gt;
+
+&lt;/a&gt; （强烈推荐）！对于吝啬的新手来说，我选择&lt;code&gt;Actual Budget&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;actual-budget-安装&#34;&gt;Actual Budget 安装&lt;/h3&gt;
+&lt;p&gt;我是直接在本地运行的项目，首先你电脑上需要安装 &lt;a class=&#34;link&#34; href=&#34;https://nodejs.org/en/download&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Node.js
+&lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+    height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+    &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+        fill=&#34;currentColor&#34;&gt;
+&lt;/svg&gt;&lt;/span&gt;
+
+&lt;/a&gt; 和 &lt;a class=&#34;link&#34; href=&#34;https://git-scm.com/download&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Git
+&lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+    height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+    &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+        fill=&#34;currentColor&#34;&gt;
+&lt;/svg&gt;&lt;/span&gt;
+
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;。如果电脑上没有安装 &lt;code&gt;yarn&lt;/code&gt;， 输入以下命令进行安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;npm install --global yarn
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然后打开你想要安装的目标文件下，打开 Git （右键&amp;ndash;&amp;gt;Git bash here），输入以下命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/actualbudget/actual-server.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;当你将&lt;code&gt;actual-server&lt;/code&gt;项目从 Github 上克隆下来，也就是上述命令执行完成后，打开你刚才下载下来的目录，或者直接在Git bash里输入&lt;code&gt;cd actual-server&lt;/code&gt;，然后输入命令安装项目所需要的依赖包：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yarn install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;如果网不好的话可能有些依赖下载不下来，可以搜索下怎么配置yarn淘宝镜像，然后删除项目里的 node_modules 文件夹，重新下载依赖。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;现在项目已经安装好了，可以使用以下命令将网页运行起来：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yarn start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如果显示&lt;code&gt;Listening on :::5006...&lt;/code&gt;就是启动成功了，然后在浏览器里输入网址&lt;code&gt;http://localhost:5006/&lt;/code&gt;，就可以访问了。&lt;/p&gt;
+&lt;h3 id=&#34;actual-budget-使用&#34;&gt;Actual Budget 使用&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.bmp.ovh/imgs/2024/06/09/cb150b6c264a3be3.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;demo&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;访问项目后可以看到如图所示的网页，点击左边侧边栏&lt;code&gt;Add account&lt;/code&gt; 添加账户，输入账号名和账户余额。首页就会显示你有多少钱需要进行分配，然后你可以将这笔钱分配到各自的类目中。
+&lt;img src=&#34;https://s2.loli.net/2024/09/05/ui9RUDtes2Xd3HO.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;addcategory&#34;
+	
+	
+&gt;
+主页中第一列是 Category 分类。点击 Usual Expenses 旁边的下箭头，点击 Add category 添加分类。添加成功后选择 Food 右侧的下箭头可以删除该类别。第二列是 Budgeted，也就是你给每个类别分配的份额/钱数，第三列是 Spent，点击进入该类的详情页，然后你可以在详情页添加该类的每一笔开支。如果你分配完要用的钱之后，上方的 To Budget 数不为0，可以选择 &lt;code&gt;hold for next month&lt;/code&gt;，将这笔钱留到下个月去分配。如果后面想把这笔钱挪到这个月，就选择&lt;code&gt;Reset next month&#39;s buffer&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;等到第二个月计算预算的时候（假设此时还没有发工资），我会先拿上个月的各项余额移到 &lt;code&gt;To Be Budgeted&lt;/code&gt; ，然后根据当前的银行卡余额进行预算规划。&lt;/p&gt;
+&lt;h3 id=&#34;参考链接&#34;&gt;参考链接&lt;/h3&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://thirdshire.com/post/why-ynab-is-the-best/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;记账软件YNAB：为什么它是最强的记账app
+&lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+    height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+    &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+        fill=&#34;currentColor&#34;&gt;
+&lt;/svg&gt;&lt;/span&gt;
+
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/actualbudget/actual&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Actual Github
+&lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+    height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+    &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+        fill=&#34;currentColor&#34;&gt;
+&lt;/svg&gt;&lt;/span&gt;
+
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://actualbudget.org/docs/tour/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Actual Docs
+&lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+    height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+    &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+    &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+        fill=&#34;currentColor&#34;&gt;
+&lt;/svg&gt;&lt;/span&gt;
+
+&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>生产力工具推荐</title>
+        <link>https://neptoo.github.io/2023/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/</link>
+        <pubDate>Mon, 20 Mar 2023 10:55:43 +0000</pubDate>
+        
+        <guid>https://neptoo.github.io/2023/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/</guid>
+        <description>&lt;img src="https://images.pexels.com/photos/4160094/pexels-photo-4160094.jpeg" alt="Featured image of post 生产力工具推荐" /&gt;&lt;p&gt;生命不息，折腾不止。继几次给同事安利成功后，我决定写一篇博客总结一下我经常使用的笔记软件。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;notion&#34;&gt;Notion&lt;/h2&gt;
+&lt;p&gt;19年的时候开始了解到并使用notion，真正几乎每天使用是在去年。之前使用了一段时间的是&lt;code&gt;语雀&lt;/code&gt;，我很喜欢日历视图。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.bmp.ovh/imgs/2024/05/18/ec8d65af5eafba93.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;notion日历视图&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;大概等语雀送的一年会员到期，因为语雀改版，页面不再简洁，我就不再使用它。&lt;/p&gt;
+&lt;p&gt;在每天的工作中，使用日历视图管理待办事项是很方便的，有时候需要实现的需求，最后周报总结的时候有助于回顾。&lt;/p&gt;
+&lt;p&gt;Notion可以用来记账。每次阻止我记账的原因，坚持不下来的原因就是时间久了我会忘记。介于工作的时候使用notion日历管理我的日程，几乎每天都会打开notion，所以很大程度缓解了记账的难度。去年坚持了一整年，年度总结可以导出notion数据到Excel，清晰明了的分析自己的经济状况。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.bmp.ovh/imgs/2024/05/18/4adcda752a7411b5.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;notion记账视图.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;从最开始使用到高频使用，我之前也试用过，觉得notion使用教程太复杂，不适合我。但是对于功能复杂的软件，选择一个功能点去用就好，如果是适合你的，好用的，后续自然而然就用习惯了。并不需要觉得太有负担。&lt;/p&gt;
+&lt;p&gt;我也尝试过notion的看板功能，可以用来记录读过的书或者简历投递记录。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.bmp.ovh/imgs/2024/05/18/a59ad59659c6f207.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;notion读书看板.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;在看板里每一个项目可以展开一个新的页面，可以在页面里记录详情，你可以灵活创建新的属性。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.bmp.ovh/imgs/2024/05/18/ddedc7252078e3ba.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;notion读书详情页.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;obisidian&#34;&gt;Obisidian&lt;/h2&gt;
+&lt;p&gt;notion唯一的问题是使用的在线服务，如果有一天notion被墙或者官方不再支持查看之前的数据，这些都是很不便的，所以我选择了本地存储数据的文档管理软件&amp;ndash;Obisidian。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.bmp.ovh/imgs/2024/05/18/d4a8387e5655b969.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;obisidian daily notes.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Obisidian有一个很好用的热门插件，叫 &lt;code&gt;Daily notes&lt;/code&gt;。你可以选择一个文件夹，用来存储你每天的日记文档。可以设置模板，比如每天要做的事项，我自己倾向于使用空白模板。Obisidian可以看作一个markdown文件管理软件。平时工作中更细节的需求、问题记录、思路和代码等我会整理在这里。配合notion 日历视图里写的是任务摘要。&lt;/p&gt;
+&lt;p&gt;我也会使用Obisidian管理leetcode刷题记录。本质上还是使用的markdown文档，md文档的树形结构是很方便很有条理性的，在obisidian中可以选择折叠/展开某个目录。复习题目的时候可以不看答案，只看题目或者重点。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://s3.bmp.ovh/imgs/2024/05/18/0e33479f7f9793aa.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;双向链接.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Obisidian最大的特色应该就是双向链接，你可以使用图中的格式创建另一个文档的链接，鼠标hover移动上去并且按住ctrl键，可以预览链接文档的内容。&lt;/p&gt;
+</description>
+        </item>
         
     </channel>
 </rss>

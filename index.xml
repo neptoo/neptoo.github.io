@@ -3411,7 +3411,7 @@
         <guid>https://neptoo.github.io/2020/%E4%BB%8E-mysql-%E5%A4%84%E7%90%86%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E8%B0%88%E8%B5%B7/</guid>
         <description>&lt;img src="https://neptoo.github.io/2020/%E4%BB%8E-mysql-%E5%A4%84%E7%90%86%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E8%B0%88%E8%B5%B7/326502.jpg" alt="Featured image of post 从 MySQL 处理大量数据谈起" /&gt;&lt;p&gt;当需要从数据库查询的表有上万条记录的时候，将会导致查询和插入耗时太长，特别是随着数据量的增加特别明显，这时需要对于数据库查询，有很多种方法和优化的点。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;依然是面试官系列，如何在 MySQL 中处理十万条以上数据？本来打算作为数据库笔记的附加题，查资料后发现可以延伸到很多方面。&lt;/p&gt;
+&lt;p&gt;依然是面试时被问到的问题，如何在 MySQL 中处理十万条以上数据？本来打算作为数据库笔记的附加题，查资料后发现可以延伸到很多方面。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;分页&#34;&gt;分页&lt;/h2&gt;

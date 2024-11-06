@@ -2529,12 +2529,12 @@
 </description>
         </item>
         <item>
-        <title>Actual Budget: 使用信封预算法高效管理财务</title>
-        <link>https://neptoo.github.io/2024/actual-budget-%E4%BD%BF%E7%94%A8%E4%BF%A1%E5%B0%81%E9%A2%84%E7%AE%97%E6%B3%95%E9%AB%98%E6%95%88%E7%AE%A1%E7%90%86%E8%B4%A2%E5%8A%A1/</link>
+        <title>Actual Budget: 基于信封预算法的记账软件</title>
+        <link>https://neptoo.github.io/2024/actual-budget-%E5%9F%BA%E4%BA%8E%E4%BF%A1%E5%B0%81%E9%A2%84%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%B0%E8%B4%A6%E8%BD%AF%E4%BB%B6/</link>
         <pubDate>Sat, 09 Mar 2024 15:16:37 +0800</pubDate>
         
-        <guid>https://neptoo.github.io/2024/actual-budget-%E4%BD%BF%E7%94%A8%E4%BF%A1%E5%B0%81%E9%A2%84%E7%AE%97%E6%B3%95%E9%AB%98%E6%95%88%E7%AE%A1%E7%90%86%E8%B4%A2%E5%8A%A1/</guid>
-        <description>&lt;img src="https://images.pexels.com/photos/7054399/pexels-photo-7054399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Featured image of post Actual Budget: 使用信封预算法高效管理财务" /&gt;&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
+        <guid>https://neptoo.github.io/2024/actual-budget-%E5%9F%BA%E4%BA%8E%E4%BF%A1%E5%B0%81%E9%A2%84%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%B0%E8%B4%A6%E8%BD%AF%E4%BB%B6/</guid>
+        <description>&lt;img src="https://images.pexels.com/photos/7054399/pexels-photo-7054399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Featured image of post Actual Budget: 基于信封预算法的记账软件" /&gt;&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;p&gt;这些年一直在陆续使用这种记账软件或者app，因为隐私问题所以我不会采用绑定微信支付/支付宝支付/银行卡的方式去自动记账。手动记账可能因为支付平台过多，容易忘记。去年我坚持使用notion一年多的时间去记录流水账，但是每个月和到了年底总结的时候，我也只能知道自己的消费概况，实在没有什么有用的信息。&lt;/p&gt;
 &lt;h3 id=&#34;信封预算法&#34;&gt;信封预算法&lt;/h3&gt;
 &lt;p&gt;然后今年在社交平台上了解到了&lt;code&gt;信封预算法&lt;/code&gt;，所谓&lt;code&gt;信封预算法&lt;/code&gt;就是每个月初/发工资那天根据银行卡余额去进行预算规划，按照不同类的开支，将钱存到「信封」里。&lt;/p&gt;
@@ -7631,7 +7631,379 @@ com.mydomain.utils.myfun2();//输出 myfun2
         <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
         
         <guid>https://neptoo.github.io/about/</guid>
-        <description>&lt;h3 id=&#34;简介&#34;&gt;简介&lt;/h3&gt;
+        <description>&lt;div
+  id=&#34;heatmap&#34;
+  style=&#34;max-width: 600px; height: 180px; padding: 2px; text-align: center&#34;
+&gt;&lt;/div&gt;
+&lt;script src=&#34;https://cdn.jsdelivr.net/npm/echarts@5.3.0/dist/echarts.min.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34;&gt;
+    var chartDom = document.getElementById(&#39;heatmap&#39;);
+    var myChart = echarts.init(chartDom);
+    window.onresize = function() {
+        myChart.resize();
+    };
+    var option;
+
+    
+    
+    
+    
+    
+    
+    var dataMap = new Map();
+    
+      var key = &#34;2024-11-03&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  5987 ;
+      var link = &#34;/2024/vue%E5%92%8Cecharts%E5%AE%9E%E7%8E%B0%E4%B8%96%E7%95%8C%E5%9C%B0%E5%9B%BE%E4%B8%8B%E9%92%BB/&#34;;
+      var title = &#34;Vue和ECharts实现世界地图下钻&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2024-09-05&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  1444 ;
+      var link = &#34;/2024/html5-canvas-%E5%AE%9E%E7%8E%B0%E5%B8%A6%E9%87%8D%E5%8A%9B%E6%95%88%E6%9E%9C%E7%9A%84%E7%A2%B0%E6%92%9E%E5%B0%8F%E7%90%83/&#34;;
+      var title = &#34;HTML5 Canvas 实现带重力效果的碰撞小球&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2024-09-02&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  1919 ;
+      var link = &#34;/2024/focumon-%E4%B8%93%E6%B3%A8%E5%BA%94%E7%94%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/&#34;;
+      var title = &#34;Focumon 专注应用使用指南&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2024-07-29&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  1680 ;
+      var link = &#34;/2024/react%E5%92%8Ccss%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E8%BD%AE%E6%92%AD%E7%BB%84%E4%BB%B6/&#34;;
+      var title = &#34;React和CSS实现自动轮播组件&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2024-03-09&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  1386 ;
+      var link = &#34;/2024/actual-budget-%E5%9F%BA%E4%BA%8E%E4%BF%A1%E5%B0%81%E9%A2%84%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%B0%E8%B4%A6%E8%BD%AF%E4%BB%B6/&#34;;
+      var title = &#34;Actual Budget: 基于信封预算法的记账软件&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2023-06-09&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  1900 ;
+      var link = &#34;/2023/%E4%BD%BF%E7%94%A8uniapp%E5%AE%9E%E7%8E%B0%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E5%B9%B6%E5%85%BC%E5%AE%B9%E6%B8%B8%E5%AE%A2%E6%A8%A1%E5%BC%8F/&#34;;
+      var title = &#34;使用Uniapp实现用户登录并兼容游客模式&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2023-05-03&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  1774 ;
+      var link = &#34;/2023/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84three.js%E6%B8%B2%E6%9F%933d%E6%A8%A1%E5%9E%8B/&#34;;
+      var title = &#34;从零开始的Three.js渲染3D模型&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2023-04-28&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  1024 ;
+      var link = &#34;/2023/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%8F%E5%8F%AF%E6%8B%96%E5%8A%A8%E6%BB%91%E5%9D%97%E7%BB%84%E4%BB%B6/&#34;;
+      var title = &#34;微信小程序实现全屏可拖动滑块组件&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2023-03-20&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  967 ;
+      var link = &#34;/2023/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/&#34;;
+      var title = &#34;生产力工具推荐&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2022-08-17&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  776 ;
+      var link = &#34;/2022/encapsulation-of-el-upload-display-an-image-after-uploading/&#34;;
+      var title = &#34;Encapsulation of el upload - display an image after uploading&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2020-04-24&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  2193 ;
+      var link = &#34;/2020/%E4%BB%8E-mysql-%E5%A4%84%E7%90%86%E5%A4%A7%E9%87%8F%E6%95%B0%E6%8D%AE%E8%B0%88%E8%B5%B7/&#34;;
+      var title = &#34;从 MySQL 处理大量数据谈起&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2020-04-15&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  616 ;
+      var link = &#34;/2020/mysql-%E5%AE%9E%E8%B7%B5%E4%B9%8B%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E4%B8%8B/&#34;;
+      var title = &#34;MySQL 实践之存储过程（下）&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2020-03-29&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  571 ;
+      var link = &#34;/2020/mysql-%E5%AE%9E%E8%B7%B5%E4%B9%8B%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E4%B8%8A/&#34;;
+      var title = &#34;MySQL 实践之存储过程（上）&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2019-06-30&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  1197 ;
+      var link = &#34;/2019/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E4%B8%8Bvue-elementui-echarts%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/&#34;;
+      var title = &#34;毕业设计(下):Vue+ElementUI+ECharts实现前端数据可视化&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2019-06-24&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  1886 ;
+      var link = &#34;/2019/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E4%B8%8Avue-mysql%E5%89%8D%E7%AB%AF%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/&#34;;
+      var title = &#34;毕业设计(上):Vue+MySQL前端连接数据库实现表格增删改查&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2019-02-15&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  2060 ;
+      var link = &#34;/2019/%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/&#34;;
+      var title = &#34;前端数据结构的算法实现&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2019-01-16&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  462 ;
+      var link = &#34;/2019/%E4%BB%8E%E4%B8%80%E9%81%93%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E8%AF%B4%E8%B5%B7/&#34;;
+      var title = &#34;从一道前端面试题说起&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }
+      var key = &#34;2018-09-30&#34;;
+      var value = dataMap.get(key);
+      var wordCount =  763 ;
+      var link = &#34;/2018/%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85js-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E5%B0%81%E8%A3%85/&#34;;
+      var title = &#34;如何封装JS-模块化与封装&#34;;
+
+      
+      if (value == null) {
+        dataMap.set(key, [{wordCount, link, title}]);
+      } else {
+        value.push({wordCount, link, title});
+      }var data = [];
+    
+    for (const [key, value] of dataMap.entries()) {
+      var sum = 0;
+      for (const v of value) {
+        sum += v.wordCount;
+      }
+      data.push([key, (sum / 1000).toFixed(1)]);
+    }
+
+    var startDate = new Date();
+    var year_Mill = startDate.setFullYear((startDate.getFullYear() - 1));
+    var startDate = +new Date(year_Mill);
+    var endDate = +new Date();
+
+    var dayTime = 3600 * 24 * 1000;
+    startDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, startDate);
+    endDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, endDate);
+
+    
+    function heatmap_width(months){
+      var startDate = new Date();
+      var mill = startDate.setMonth((startDate.getMonth() - months));
+      var endDate = +new Date();
+      startDate = +new Date(mill);
+
+      endDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, endDate);
+      startDate = echarts.format.formatTime(&#39;yyyy-MM-dd&#39;, startDate);
+
+      var showmonth = [];
+      showmonth.push([
+          startDate,
+          endDate
+      ]);
+      return showmonth
+    };
+
+    function getRangeArr() {
+      const windowWidth = window.innerWidth;
+      if (windowWidth &gt;= 600) {
+        return heatmap_width(12);
+      } else if (windowWidth &gt;= 400) {
+        return heatmap_width(9);
+      } else {
+        return heatmap_width(6);
+      }
+    }
+
+    option = {
+      title: {
+          top: 0,
+          left: &#39;center&#39;,
+          text: &#39;文章日历&#39;
+      },
+      tooltip: {
+        hideDelay: 1000,
+        enterable: true,
+        formatter: function (p) {
+          const date = p.data[0];
+          const posts = dataMap.get(date);
+          var content = `${date}`;
+          for (const [i, post] of posts.entries()) {
+              content += &#34;&lt;br&gt;&#34;;
+              var link = post.link;
+              var title = post.title;
+              var wordCount = (post.wordCount / 1000).toFixed(1);
+              content += `&lt;a href=&#34;${link}&#34; target=&#34;_blank&#34;&gt;${title}&lt;/a&gt;`
+          }
+          return content;
+        }
+      },
+      visualMap: {
+        show: false,
+          min: 0,
+          max: 10,
+          type: &#39;piecewise&#39;,
+          orient: &#39;horizontal&#39;,
+          left: &#39;center&#39;,
+          top: 10,
+
+          inRange: {
+            //  [floor color, ceiling color]
+            color: [&#39;#c4e8ff&#39;, &#39;#47b4fc&#39;, &#39;#0269ad&#39;],
+          },
+          splitNumber: 4,
+          text: [&#39;千字&#39;, &#39;&#39;],
+          showLabel: true,
+          itemGap: 20,
+      },
+      calendar: {
+          top: 60,
+          left: 20,
+          right: 4,
+          cellSize: [&#39;auto&#39;, 12],
+          range: getRangeArr(),
+          itemStyle: {
+              color: &#39;#F1F1F1&#39;,
+              borderWidth: 2.5,
+              borderColor: &#39;#fff&#39;,
+          },
+          yearLabel: { show: false },
+          dayLabel: {
+            align: &#39;center&#39;,
+            nameMap: &#39;ZH&#39;,
+          },
+          monthLabel: {
+            nameMap: &#39;EN&#39;,
+          },
+          
+          splitLine: {
+            lineStyle: {
+              color: &#39;rgba(0, 0, 0, 0.0)&#39;,
+              
+              
+              
+              
+            }
+          }
+      },
+      series: {
+          type: &#39;heatmap&#39;,
+          coordinateSystem: &#39;calendar&#39;,
+          data: data,
+      }
+    };
+    myChart.setOption(option);
+    myChart.on(&#39;click&#39;, function(params) {
+      if (params.componentType === &#39;series&#39;) {
+        
+        const post = dataMap.get(params.data[0])[0];
+        const link = window.location.origin + post.link;
+        window.open(link, &#39;_blank&#39;).focus();
+      }
+  });
+&lt;/script&gt;
+
+&lt;h3 id=&#34;简介&#34;&gt;简介&lt;/h3&gt;
 &lt;p&gt;因为我很不太擅长自我介绍，所以我把我想到的事情全部记录在这里，以后有人要我自我介绍我就可以把这个网站丢给她，然后看完后大概就知道我是怎样的人。&lt;/p&gt;
 &lt;h4 id=&#34;联系我&#34;&gt;联系我&lt;/h4&gt;
 &lt;ul&gt;

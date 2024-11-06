@@ -8,10 +8,10 @@
         <language>en-us</language>
         <lastBuildDate>Sun, 03 Nov 2024 10:33:34 +0800</lastBuildDate><atom:link href="https://neptoo.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Vue和ECharts实现世界地图下钻</title>
-        <link>https://neptoo.github.io/2024/vue%E5%92%8Cecharts%E5%AE%9E%E7%8E%B0%E4%B8%96%E7%95%8C%E5%9C%B0%E5%9B%BE%E4%B8%8B%E9%92%BB/</link>
+        <link>https://neptoo.github.io/2024/vue-map-visualization/</link>
         <pubDate>Sun, 03 Nov 2024 10:33:34 +0800</pubDate>
         
-        <guid>https://neptoo.github.io/2024/vue%E5%92%8Cecharts%E5%AE%9E%E7%8E%B0%E4%B8%96%E7%95%8C%E5%9C%B0%E5%9B%BE%E4%B8%8B%E9%92%BB/</guid>
+        <guid>https://neptoo.github.io/2024/vue-map-visualization/</guid>
         <description>&lt;img src="https://images.pexels.com/photos/269790/pexels-photo-269790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Featured image of post Vue和ECharts实现世界地图下钻" /&gt;&lt;blockquote&gt;
 &lt;p&gt;基于Vue和ECharts，以中国为中心点的2D世界地图展示 ，包含世界地图和省级地图下钻功能&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1248,10 +1248,10 @@
         </item>
         <item>
         <title>HTML5 Canvas 实现带重力效果的碰撞小球</title>
-        <link>https://neptoo.github.io/2024/html5-canvas-%E5%AE%9E%E7%8E%B0%E5%B8%A6%E9%87%8D%E5%8A%9B%E6%95%88%E6%9E%9C%E7%9A%84%E7%A2%B0%E6%92%9E%E5%B0%8F%E7%90%83/</link>
+        <link>https://neptoo.github.io/2024/html5-canvas-balls/</link>
         <pubDate>Thu, 05 Sep 2024 15:44:12 +0800</pubDate>
         
-        <guid>https://neptoo.github.io/2024/html5-canvas-%E5%AE%9E%E7%8E%B0%E5%B8%A6%E9%87%8D%E5%8A%9B%E6%95%88%E6%9E%9C%E7%9A%84%E7%A2%B0%E6%92%9E%E5%B0%8F%E7%90%83/</guid>
+        <guid>https://neptoo.github.io/2024/html5-canvas-balls/</guid>
         <description>&lt;img src="https://images.pexels.com/photos/60582/newton-s-cradle-balls-sphere-action-60582.jpeg?auto=compress&cs=tinysrgb" alt="Featured image of post HTML5 Canvas 实现带重力效果的碰撞小球" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;在屏幕可视区域内创建多个小球，每个小球的颜色、大小和初始速度都是随机的。
 初始化的时候，小球会随机出现在屏幕中的任意位置，碰撞到水平线或者垂直线上（屏幕边缘），会对速度产生一定的影响，因为重力效果，小球最终会停留在水平线上，或者以一定的速度在水平线上左右运动。&lt;/p&gt;
@@ -1710,10 +1710,10 @@
         </item>
         <item>
         <title>Focumon 专注应用使用指南</title>
-        <link>https://neptoo.github.io/2024/focumon-%E4%B8%93%E6%B3%A8%E5%BA%94%E7%94%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+        <link>https://neptoo.github.io/2024/focumon/</link>
         <pubDate>Mon, 02 Sep 2024 17:06:00 +0800</pubDate>
         
-        <guid>https://neptoo.github.io/2024/focumon-%E4%B8%93%E6%B3%A8%E5%BA%94%E7%94%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+        <guid>https://neptoo.github.io/2024/focumon/</guid>
         <description>&lt;img src="https://images.pexels.com/photos/355863/pexels-photo-355863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Featured image of post Focumon 专注应用使用指南" /&gt;&lt;h3 id=&#34;focumon是什么&#34;&gt;focumon是什么&lt;/h3&gt;
 &lt;p&gt;我是从三个月前开始使用的，非常适合自由安排自己时间的小伙伴。&lt;/p&gt;
 &lt;p&gt;类似Habitica，专注应用。以游戏的方式让你更好地专注于某个任务，利用某一段时间去集中地做一些事，很适合写论文或者做habit tracking（习惯追踪）。&lt;/p&gt;
@@ -1804,10 +1804,10 @@
         </item>
         <item>
         <title>React和CSS实现自动轮播组件</title>
-        <link>https://neptoo.github.io/2024/react%E5%92%8Ccss%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E8%BD%AE%E6%92%AD%E7%BB%84%E4%BB%B6/</link>
+        <link>https://neptoo.github.io/2024/react-carousel/</link>
         <pubDate>Mon, 29 Jul 2024 15:02:10 +0800</pubDate>
         
-        <guid>https://neptoo.github.io/2024/react%E5%92%8Ccss%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E8%BD%AE%E6%92%AD%E7%BB%84%E4%BB%B6/</guid>
+        <guid>https://neptoo.github.io/2024/react-carousel/</guid>
         <description>&lt;img src="https://images.pexels.com/photos/221185/pexels-photo-221185.jpeg" alt="Featured image of post React和CSS实现自动轮播组件" /&gt;&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;p&gt;最近在尝试使用React重构网站，尽量减少库的使用，只使用React和CSS手写一个简单实用的轮播图组件。&lt;/p&gt;
 &lt;p&gt;先看效果预览：&lt;/p&gt;
@@ -2530,10 +2530,10 @@
         </item>
         <item>
         <title>Actual Budget: 基于信封预算法的记账软件</title>
-        <link>https://neptoo.github.io/2024/actual-budget-%E5%9F%BA%E4%BA%8E%E4%BF%A1%E5%B0%81%E9%A2%84%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%B0%E8%B4%A6%E8%BD%AF%E4%BB%B6/</link>
+        <link>https://neptoo.github.io/2024/actual-budegt/</link>
         <pubDate>Sat, 09 Mar 2024 15:16:37 +0800</pubDate>
         
-        <guid>https://neptoo.github.io/2024/actual-budget-%E5%9F%BA%E4%BA%8E%E4%BF%A1%E5%B0%81%E9%A2%84%E7%AE%97%E6%B3%95%E7%9A%84%E8%AE%B0%E8%B4%A6%E8%BD%AF%E4%BB%B6/</guid>
+        <guid>https://neptoo.github.io/2024/actual-budegt/</guid>
         <description>&lt;img src="https://images.pexels.com/photos/7054399/pexels-photo-7054399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Featured image of post Actual Budget: 基于信封预算法的记账软件" /&gt;&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;p&gt;这些年一直在陆续使用这种记账软件或者app，因为隐私问题所以我不会采用绑定微信支付/支付宝支付/银行卡的方式去自动记账。手动记账可能因为支付平台过多，容易忘记。去年我坚持使用notion一年多的时间去记录流水账，但是每个月和到了年底总结的时候，我也只能知道自己的消费概况，实在没有什么有用的信息。&lt;/p&gt;
 &lt;h3 id=&#34;信封预算法&#34;&gt;信封预算法&lt;/h3&gt;

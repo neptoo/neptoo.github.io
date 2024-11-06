@@ -8,10 +8,10 @@
         <language>en-us</language>
         <lastBuildDate>Sun, 03 Nov 2024 10:33:34 +0800</lastBuildDate><atom:link href="https://neptoo.github.io/tags/vue/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Vue和ECharts实现世界地图下钻</title>
-        <link>https://neptoo.github.io/2024/vue%E5%92%8Cecharts%E5%AE%9E%E7%8E%B0%E4%B8%96%E7%95%8C%E5%9C%B0%E5%9B%BE%E4%B8%8B%E9%92%BB/</link>
+        <link>https://neptoo.github.io/2024/vue-map-visualization/</link>
         <pubDate>Sun, 03 Nov 2024 10:33:34 +0800</pubDate>
         
-        <guid>https://neptoo.github.io/2024/vue%E5%92%8Cecharts%E5%AE%9E%E7%8E%B0%E4%B8%96%E7%95%8C%E5%9C%B0%E5%9B%BE%E4%B8%8B%E9%92%BB/</guid>
+        <guid>https://neptoo.github.io/2024/vue-map-visualization/</guid>
         <description>&lt;img src="https://images.pexels.com/photos/269790/pexels-photo-269790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Featured image of post Vue和ECharts实现世界地图下钻" /&gt;&lt;blockquote&gt;
 &lt;p&gt;基于Vue和ECharts，以中国为中心点的2D世界地图展示 ，包含世界地图和省级地图下钻功能&lt;/p&gt;
 &lt;/blockquote&gt;

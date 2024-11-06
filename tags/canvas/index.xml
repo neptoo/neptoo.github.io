@@ -8,10 +8,10 @@
         <language>en-us</language>
         <lastBuildDate>Thu, 05 Sep 2024 15:44:12 +0800</lastBuildDate><atom:link href="https://neptoo.github.io/tags/canvas/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>HTML5 Canvas 实现带重力效果的碰撞小球</title>
-        <link>https://neptoo.github.io/2024/html5-canvas-%E5%AE%9E%E7%8E%B0%E5%B8%A6%E9%87%8D%E5%8A%9B%E6%95%88%E6%9E%9C%E7%9A%84%E7%A2%B0%E6%92%9E%E5%B0%8F%E7%90%83/</link>
+        <link>https://neptoo.github.io/2024/html5-canvas-balls/</link>
         <pubDate>Thu, 05 Sep 2024 15:44:12 +0800</pubDate>
         
-        <guid>https://neptoo.github.io/2024/html5-canvas-%E5%AE%9E%E7%8E%B0%E5%B8%A6%E9%87%8D%E5%8A%9B%E6%95%88%E6%9E%9C%E7%9A%84%E7%A2%B0%E6%92%9E%E5%B0%8F%E7%90%83/</guid>
+        <guid>https://neptoo.github.io/2024/html5-canvas-balls/</guid>
         <description>&lt;img src="https://images.pexels.com/photos/60582/newton-s-cradle-balls-sphere-action-60582.jpeg?auto=compress&cs=tinysrgb" alt="Featured image of post HTML5 Canvas 实现带重力效果的碰撞小球" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;在屏幕可视区域内创建多个小球，每个小球的颜色、大小和初始速度都是随机的。
 初始化的时候，小球会随机出现在屏幕中的任意位置，碰撞到水平线或者垂直线上（屏幕边缘），会对速度产生一定的影响，因为重力效果，小球最终会停留在水平线上，或者以一定的速度在水平线上左右运动。&lt;/p&gt;

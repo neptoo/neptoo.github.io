@@ -602,7 +602,7 @@
       title: {
           top: 0,
           left: 'center',
-          text: '文章日历'
+          text: '博客日历'
       },
       tooltip: {
         hideDelay: 1000,
@@ -616,28 +616,32 @@
               var link = post.link;
               var title = post.title;
               var wordCount = (post.wordCount / 1000).toFixed(1);
-              content += `<a href="${link}" target="_blank">${title}</a>`
+              content += `<a href="${link}" target="_blank" 
+              style="text-decoration: none;color: #176B87;" 
+              onmouseover="this.style.textDecoration='underline'" 
+              onmouseout="this.style.textDecoration='none'">
+             ${title} | ${wordCount} 千字</a>`
           }
           return content;
         }
       },
       visualMap: {
         show: false,
-          min: 0,
-          max: 10,
-          type: 'piecewise',
-          orient: 'horizontal',
-          left: 'center',
-          top: 10,
+        min: 0,
+        max: 10,
+        type: 'piecewise',
+        orient: 'horizontal',
+        left: 'center',
+        top: 10,
 
-          inRange: {
-            //  [floor color, ceiling color]
-            color: ['#c4e8ff', '#47b4fc', '#0269ad'],
-          },
-          splitNumber: 4,
-          text: ['千字', ''],
-          showLabel: true,
-          itemGap: 20,
+        inRange: {
+          //  [floor color, ceiling color]
+          color: ['#c4e8ff', '#47b4fc', '#0269ad'],
+        },
+        splitNumber: 4,
+        text: ['千字', ''],
+        showLabel: true,
+        itemGap: 20,
       },
       calendar: {
           top: 60,
@@ -653,7 +657,7 @@
           yearLabel: { show: false },
           dayLabel: {
             align: 'center',
-            nameMap: 'ZH',
+            nameMap: ['日', '', '二', '', '四', '', '六'],
           },
           monthLabel: {
             nameMap: 'EN',
@@ -916,7 +920,7 @@
     		
 	
         2024 Neptoo&#39;s Blog<br>
-        共嘟嘟了 30616 字<span> · 18篇</br><p>
+        共嘟嘟了 30641 字<span> · 18篇</br><p>
     </section>
     
     <section class="powerby">

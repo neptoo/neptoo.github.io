@@ -7919,7 +7919,7 @@ com.mydomain.utils.myfun2();//输出 myfun2
       title: {
           top: 0,
           left: &#39;center&#39;,
-          text: &#39;文章日历&#39;
+          text: &#39;博客日历&#39;
       },
       tooltip: {
         hideDelay: 1000,
@@ -7933,28 +7933,32 @@ com.mydomain.utils.myfun2();//输出 myfun2
               var link = post.link;
               var title = post.title;
               var wordCount = (post.wordCount / 1000).toFixed(1);
-              content += `&lt;a href=&#34;${link}&#34; target=&#34;_blank&#34;&gt;${title}&lt;/a&gt;`
+              content += `&lt;a href=&#34;${link}&#34; target=&#34;_blank&#34; 
+              style=&#34;text-decoration: none;color: #176B87;&#34; 
+              onmouseover=&#34;this.style.textDecoration=&#39;underline&#39;&#34; 
+              onmouseout=&#34;this.style.textDecoration=&#39;none&#39;&#34;&gt;
+             ${title} | ${wordCount} 千字&lt;/a&gt;`
           }
           return content;
         }
       },
       visualMap: {
         show: false,
-          min: 0,
-          max: 10,
-          type: &#39;piecewise&#39;,
-          orient: &#39;horizontal&#39;,
-          left: &#39;center&#39;,
-          top: 10,
+        min: 0,
+        max: 10,
+        type: &#39;piecewise&#39;,
+        orient: &#39;horizontal&#39;,
+        left: &#39;center&#39;,
+        top: 10,
 
-          inRange: {
-            //  [floor color, ceiling color]
-            color: [&#39;#c4e8ff&#39;, &#39;#47b4fc&#39;, &#39;#0269ad&#39;],
-          },
-          splitNumber: 4,
-          text: [&#39;千字&#39;, &#39;&#39;],
-          showLabel: true,
-          itemGap: 20,
+        inRange: {
+          //  [floor color, ceiling color]
+          color: [&#39;#c4e8ff&#39;, &#39;#47b4fc&#39;, &#39;#0269ad&#39;],
+        },
+        splitNumber: 4,
+        text: [&#39;千字&#39;, &#39;&#39;],
+        showLabel: true,
+        itemGap: 20,
       },
       calendar: {
           top: 60,
@@ -7970,7 +7974,7 @@ com.mydomain.utils.myfun2();//输出 myfun2
           yearLabel: { show: false },
           dayLabel: {
             align: &#39;center&#39;,
-            nameMap: &#39;ZH&#39;,
+            nameMap: [&#39;日&#39;, &#39;&#39;, &#39;二&#39;, &#39;&#39;, &#39;四&#39;, &#39;&#39;, &#39;六&#39;],
           },
           monthLabel: {
             nameMap: &#39;EN&#39;,

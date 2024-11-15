@@ -13,7 +13,7 @@
         
         <guid>https://neptoo.github.io/2018/%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85js-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E5%B0%81%E8%A3%85/</guid>
         <description>&lt;p&gt;所谓模块化就是将需要用到的方法封装成为一个模块，哪里需要直接调用即可。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!-- more --&gt;
 &lt;h4 id=&#34;js库命名空间&#34;&gt;js库+命名空间&lt;/h4&gt;
 &lt;p&gt;网上常用的较为简单的一种方法是创建js库，要避免重复，封装自己的函数，要使用命名空间，对象就是天然的命名空间。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(function(global){

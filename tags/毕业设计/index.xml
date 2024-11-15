@@ -23,7 +23,7 @@
 &lt;/svg&gt;&lt;/span&gt;
 
 &lt;/a&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!-- more --&gt;
 &lt;h2 id=&#34;基础配置&#34;&gt;基础配置&lt;/h2&gt;
 &lt;h3 id=&#34;安装echarts依赖&#34;&gt;安装ECharts依赖&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -589,7 +589,7 @@
 &lt;/svg&gt;&lt;/span&gt;
 
 &lt;/a&gt;，手把手教你使用前端连接数据库，实现增删改查。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!-- more --&gt;
 &lt;h2 id=&#34;项目初始化&#34;&gt;项目初始化&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;使用vue-cli搭建一个基于webpack的vue2.0项目，使用脚手架生成项目框架。&lt;/li&gt;

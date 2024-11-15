@@ -16,7 +16,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;依然是面试时被问到的问题，如何在 MySQL 中处理十万条以上数据？本来打算作为数据库笔记的附加题，查资料后发现可以延伸到很多方面。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!-- more --&gt;
 &lt;h2 id=&#34;分页&#34;&gt;分页&lt;/h2&gt;
 &lt;p&gt;如果使用的ORM框架是mybatis的话，有开源的分页插件可以使用，如：Mybatis-PageHelper。如果不使用分页插件，那么就需要手动分页了，由于不同的数据库实现分页的SQL语句并不一致，如Mysql使用的是limit关键字，而Oracle使用的是rownum。首先讲讲分页操作必须满足的几个要求：一个是有序性，一个是不重复。&lt;/p&gt;
 &lt;h3 id=&#34;普通分页&#34;&gt;普通分页&lt;/h3&gt;
@@ -207,7 +207,7 @@
 	
 	
 &gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!-- more --&gt;
 &lt;h3 id=&#34;参数验证&#34;&gt;参数验证&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -448,7 +448,7 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;如果你创建了一个有数据库的程序，为了方便代码管理，你最好将SQL代码放到数据库中，即存储过程或函数中。&lt;/p&gt;
 &lt;p&gt;存储过程，就是在数据库中保存代码块的对象。然后在程序中，通过调用这些过程来获得或存入数据。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!-- more --&gt;
 &lt;h3 id=&#34;创建&#34;&gt;创建&lt;/h3&gt;
 &lt;p&gt;在 MySQL 中创建存储过程：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -713,7 +713,7 @@
 &lt;/svg&gt;&lt;/span&gt;
 
 &lt;/a&gt;，手把手教你使用前端连接数据库，实现增删改查。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!-- more --&gt;
 &lt;h2 id=&#34;项目初始化&#34;&gt;项目初始化&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;使用vue-cli搭建一个基于webpack的vue2.0项目，使用脚手架生成项目框架。&lt;/li&gt;

@@ -43,7 +43,7 @@
     
       var key = &#34;2024-11-03&#34;;
       var value = dataMap.get(key);
-      var wordCount =  5987 ;
+      var wordCount =  5984 ;
       var link = &#34;/2024/vue-map-visualization/&#34;;
       var title = &#34;Vue和ECharts实现世界地图下钻&#34;;
 

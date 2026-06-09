@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" 基于Vue和ECharts，以中国为中心点的2D世界地图展示 ，包含世界地图和省级地图下钻功能\n效果预览 ECharts 初始化 安装和使用 ECharts 1 npm install echarts 在 vue 项目的main.js中引入 ECharts\n">
+<title>Vue和ECharts实现世界地图下钻</title>
+
+
+<link rel="canonical" href="https://neptoo.github.io/p/vue-map-visualization/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.e62e09c60ba428a627e03568fa3df938f6a8224f815b5846f00816c17d4a0be4.css"><meta property='og:title' content="Vue和ECharts实现世界地图下钻">
+<meta property='og:description' content=" 基于Vue和ECharts，以中国为中心点的2D世界地图展示 ，包含世界地图和省级地图下钻功能\n效果预览 ECharts 初始化 安装和使用 ECharts 1 npm install echarts 在 vue 项目的main.js中引入 ECharts\n">
+<meta property='og:url' content='https://neptoo.github.io/p/vue-map-visualization/'>
+<meta property='og:site_name' content='Neptoo&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='echarts' /><meta property='article:tag' content='vue' /><meta property='article:published_time' content='2024-11-03T10:33:34&#43;08:00'/><meta property='article:modified_time' content='2024-11-03T10:33:34&#43;08:00'/><meta property='og:image' content='https://lh3.googleusercontent.com/d/1GJk-uBAQ8Wxbifb3pQ9K_KOBCPSREcYK' />
+<meta name="twitter:title" content="Vue和ECharts实现世界地图下钻">
+<meta name="twitter:description" content=" 基于Vue和ECharts，以中国为中心点的2D世界地图展示 ，包含世界地图和省级地图下钻功能\n效果预览 ECharts 初始化 安装和使用 ECharts 1 npm install echarts 在 vue 项目的main.js中引入 ECharts\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://lh3.googleusercontent.com/d/1GJk-uBAQ8Wxbifb3pQ9K_KOBCPSREcYK' />
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="/img/avatar.png" 
+                        width="256"
+                        height="246"
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🌈</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Neptoo&#39;s Blog</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/neptoo'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='mailto:heywuq@outlook.com'
+                        
+                        title="Email"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav class="toc-nav" id="TableOfContents">
+                
+  <ol>
+    <li><a href="#效果预览">效果预览</a></li>
+    <li><a href="#echarts-初始化">ECharts 初始化</a>
+      <ol>
+        <li><a href="#安装和使用-echarts">安装和使用 ECharts</a></li>
+      </ol>
+    </li>
+    <li><a href="#世界地图">世界地图</a>
+      <ol>
+        <li><a href="#地图配置">地图配置</a></li>
+        <li><a href="#地图自适应">地图自适应</a></li>
+      </ol>
+    </li>
+    <li><a href="#地图下钻">地图下钻</a>
+      <ol>
+        <li><a href="#地图配置修改">地图配置修改</a></li>
+        <li><a href="#返回函数">返回函数</a></li>
+        <li><a href="#函数封装">函数封装</a></li>
+        <li><a href="#外国地图下钻">外国地图下钻</a></li>
+      </ol>
+    </li>
+    <li><a href="#完整代码">完整代码</a></li>
+  </ol>
+
+            </nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+    <div class="article-image">
+        <a href="/p/vue-map-visualization/">
+            <img alt="Featured image of post Vue和ECharts实现世界地图下钻" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://lh3.googleusercontent.com/d/1GJk-uBAQ8Wxbifb3pQ9K_KOBCPSREcYK">
+        </a>
+    </div>
+    
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/vue-map-visualization/">Vue和ECharts实现世界地图下钻</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2024-11-03T10:33:34&#43;08:00'>2024年11月3日星期日</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        阅读时长: 12 分钟
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#效果预览">效果预览</a></li>
+    <li><a href="#echarts-初始化">ECharts 初始化</a>
+      <ol>
+        <li><a href="#安装和使用-echarts">安装和使用 ECharts</a></li>
+      </ol>
+    </li>
+    <li><a href="#世界地图">世界地图</a>
+      <ol>
+        <li><a href="#地图配置">地图配置</a></li>
+        <li><a href="#地图自适应">地图自适应</a></li>
+      </ol>
+    </li>
+    <li><a href="#地图下钻">地图下钻</a>
+      <ol>
+        <li><a href="#地图配置修改">地图配置修改</a></li>
+        <li><a href="#返回函数">返回函数</a></li>
+        <li><a href="#函数封装">函数封装</a></li>
+        <li><a href="#外国地图下钻">外国地图下钻</a></li>
+      </ol>
+    </li>
+    <li><a href="#完整代码">完整代码</a></li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    
+    <blockquote>
+        <p>基于Vue和ECharts，以中国为中心点的2D世界地图展示 ，包含世界地图和省级地图下钻功能</p>
+
+    </blockquote>
+<h2 id="效果预览">效果预览
+</h2><p><img alt="worldmap" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://lh3.googleusercontent.com/d/1nVR4nXeBK2CnQApmYQLVigKdhiDXD-zf"></p>
+<h2 id="echarts-初始化">ECharts 初始化
+</h2><h3 id="安装和使用-echarts">安装和使用 ECharts
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install echarts
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在 vue 项目的<code>main.js</code>中引入 ECharts</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">echarts</span> <span class="nx">from</span> <span class="s2">&#34;echarts&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Vue</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">$echarts</span> <span class="o">=</span> <span class="nx">echarts</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在页面模板中使用ECharts</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-vue" data-lang="vue"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;map-container&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;mapChart&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">echarts</span> <span class="nx">from</span> <span class="s1">&#39;echarts&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">mounted</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">mychart</span> <span class="o">=</span> <span class="nx">echarts</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;mapChart&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">myChart</span><span class="p">.</span><span class="nx">setOption</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;ECharts Getting Started Example&#39;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">tooltip</span><span class="o">:</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">xAxis</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;shirt&#39;</span><span class="p">,</span> <span class="s1">&#39;cardigan&#39;</span><span class="p">,</span> <span class="s1">&#39;chiffon&#39;</span><span class="p">,</span> <span class="s1">&#39;pants&#39;</span><span class="p">,</span> <span class="s1">&#39;heels&#39;</span><span class="p">,</span> <span class="s1">&#39;socks&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">yAxis</span><span class="o">:</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">series</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;sales&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>地图样式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">map-container</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">vh</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">#</span><span class="nn">mapChart</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这个阶段，确保ECharts图表正确显示之后，接下来再创建一个ECharts地图。</p>
+<h2 id="世界地图">世界地图
+</h2>
+    <blockquote>
+        <p>在Vue项目的assets目录下，确保引入了省市和世界地图的json数据。你可以在这里👉 <a class="link" href="https://github.com/neptoo/vue-screen/tree/main/src/assets/json"  target="_blank" rel="noopener"
+    >下载数据</a></p>
+
+    </blockquote>
+<p>中英文映射数据</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span><span class="lnt">213
+</span><span class="lnt">214
+</span><span class="lnt">215
+</span><span class="lnt">216
+</span><span class="lnt">217
+</span><span class="lnt">218
+</span><span class="lnt">219
+</span><span class="lnt">220
+</span><span class="lnt">221
+</span><span class="lnt">222
+</span><span class="lnt">223
+</span><span class="lnt">224
+</span><span class="lnt">225
+</span><span class="lnt">226
+</span><span class="lnt">227
+</span><span class="lnt">228
+</span><span class="lnt">229
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">nameMap</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Azad Kashmir&#34;</span><span class="o">:</span> <span class="s2">&#34;阿扎德克什米尔&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Federally Administered Tribal Areas&#34;</span><span class="o">:</span> <span class="s2">&#34;联邦直辖部落区&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Gilgit-Baltistan&#34;</span><span class="o">:</span> <span class="s2">&#34;吉尔吉特－巴尔蒂斯坦&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Islamabad Capital Territory&#34;</span><span class="o">:</span> <span class="s2">&#34;伊斯兰堡&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Khyber Pakhtunkhwa&#34;</span><span class="o">:</span> <span class="s2">&#34;开伯尔普赫图赫瓦省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Punjab</span><span class="o">:</span> <span class="s2">&#34;旁遮普&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Sindh</span><span class="o">:</span> <span class="s2">&#34;信德省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Balochistan</span><span class="o">:</span> <span class="s2">&#34;俾路支斯坦&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Afghanistan</span><span class="o">:</span> <span class="s2">&#34;阿富汗&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Singapore</span><span class="o">:</span> <span class="s2">&#34;新加坡&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Angola</span><span class="o">:</span> <span class="s2">&#34;安哥拉&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Albania</span><span class="o">:</span> <span class="s2">&#34;阿尔巴尼亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;United Arab Emirates&#34;</span><span class="o">:</span> <span class="s2">&#34;阿联酋&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Argentina</span><span class="o">:</span> <span class="s2">&#34;阿根廷&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Armenia</span><span class="o">:</span> <span class="s2">&#34;亚美尼亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;French Southern and Antarctic Lands&#34;</span><span class="o">:</span> <span class="s2">&#34;法属南半球和南极领地&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Australia</span><span class="o">:</span> <span class="s2">&#34;澳大利亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Austria</span><span class="o">:</span> <span class="s2">&#34;奥地利&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Azerbaijan</span><span class="o">:</span> <span class="s2">&#34;阿塞拜疆&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Burundi</span><span class="o">:</span> <span class="s2">&#34;布隆迪&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Belgium</span><span class="o">:</span> <span class="s2">&#34;比利时&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Benin</span><span class="o">:</span> <span class="s2">&#34;贝宁&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Burkina Faso&#34;</span><span class="o">:</span> <span class="s2">&#34;布基纳法索&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Bangladesh</span><span class="o">:</span> <span class="s2">&#34;孟加拉国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Bulgaria</span><span class="o">:</span> <span class="s2">&#34;保加利亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;The Bahamas&#34;</span><span class="o">:</span> <span class="s2">&#34;巴哈马&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Bosnia and Herzegovina&#34;</span><span class="o">:</span> <span class="s2">&#34;波斯尼亚和黑塞哥维那&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Belarus</span><span class="o">:</span> <span class="s2">&#34;白俄罗斯&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Belize</span><span class="o">:</span> <span class="s2">&#34;伯利兹&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Bermuda</span><span class="o">:</span> <span class="s2">&#34;百慕大&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Bolivia</span><span class="o">:</span> <span class="s2">&#34;玻利维亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Brazil</span><span class="o">:</span> <span class="s2">&#34;巴西&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Brunei</span><span class="o">:</span> <span class="s2">&#34;文莱&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Bhutan</span><span class="o">:</span> <span class="s2">&#34;不丹&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Botswana</span><span class="o">:</span> <span class="s2">&#34;博茨瓦纳&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Central African Republic&#34;</span><span class="o">:</span> <span class="s2">&#34;中非共和国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Canada</span><span class="o">:</span> <span class="s2">&#34;加拿大&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Switzerland</span><span class="o">:</span> <span class="s2">&#34;瑞士&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Chile</span><span class="o">:</span> <span class="s2">&#34;智利&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">China</span><span class="o">:</span> <span class="s2">&#34;中国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Ivory Coast&#34;</span><span class="o">:</span> <span class="s2">&#34;象牙海岸&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Cameroon</span><span class="o">:</span> <span class="s2">&#34;喀麦隆&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Democratic Republic of the Congo&#34;</span><span class="o">:</span> <span class="s2">&#34;刚果民主共和国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Republic of the Congo&#34;</span><span class="o">:</span> <span class="s2">&#34;刚果共和国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Colombia</span><span class="o">:</span> <span class="s2">&#34;哥伦比亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Costa Rica&#34;</span><span class="o">:</span> <span class="s2">&#34;哥斯达黎加&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Cuba</span><span class="o">:</span> <span class="s2">&#34;古巴&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Northern Cyprus&#34;</span><span class="o">:</span> <span class="s2">&#34;北塞浦路斯&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Cyprus</span><span class="o">:</span> <span class="s2">&#34;塞浦路斯&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Czech Republic&#34;</span><span class="o">:</span> <span class="s2">&#34;捷克共和国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Germany</span><span class="o">:</span> <span class="s2">&#34;德国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Djibouti</span><span class="o">:</span> <span class="s2">&#34;吉布提&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Denmark</span><span class="o">:</span> <span class="s2">&#34;丹麦&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Dominican Republic&#34;</span><span class="o">:</span> <span class="s2">&#34;多明尼加共和国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Algeria</span><span class="o">:</span> <span class="s2">&#34;阿尔及利亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Ecuador</span><span class="o">:</span> <span class="s2">&#34;厄瓜多尔&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Egypt</span><span class="o">:</span> <span class="s2">&#34;埃及&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Eritrea</span><span class="o">:</span> <span class="s2">&#34;厄立特里亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Spain</span><span class="o">:</span> <span class="s2">&#34;西班牙&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Estonia</span><span class="o">:</span> <span class="s2">&#34;爱沙尼亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Ethiopia</span><span class="o">:</span> <span class="s2">&#34;埃塞俄比亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Finland</span><span class="o">:</span> <span class="s2">&#34;芬兰&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Fiji</span><span class="o">:</span> <span class="s2">&#34;斐&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Falkland Islands&#34;</span><span class="o">:</span> <span class="s2">&#34;福克兰群岛&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">France</span><span class="o">:</span> <span class="s2">&#34;法国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Gabon</span><span class="o">:</span> <span class="s2">&#34;加蓬&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;United Kingdom&#34;</span><span class="o">:</span> <span class="s2">&#34;英国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Georgia</span><span class="o">:</span> <span class="s2">&#34;格鲁吉亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Ghana</span><span class="o">:</span> <span class="s2">&#34;加纳&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Guinea</span><span class="o">:</span> <span class="s2">&#34;几内亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Gambia</span><span class="o">:</span> <span class="s2">&#34;冈比亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Guinea Bissau&#34;</span><span class="o">:</span> <span class="s2">&#34;几内亚比绍&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Greece</span><span class="o">:</span> <span class="s2">&#34;希腊&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Greenland</span><span class="o">:</span> <span class="s2">&#34;格陵兰&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Guatemala</span><span class="o">:</span> <span class="s2">&#34;危地马拉&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;French Guiana&#34;</span><span class="o">:</span> <span class="s2">&#34;法属圭亚那&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Guyana</span><span class="o">:</span> <span class="s2">&#34;圭亚那&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Honduras</span><span class="o">:</span> <span class="s2">&#34;洪都拉斯&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Croatia</span><span class="o">:</span> <span class="s2">&#34;克罗地亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Haiti</span><span class="o">:</span> <span class="s2">&#34;海地&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Hungary</span><span class="o">:</span> <span class="s2">&#34;匈牙利&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Indonesia</span><span class="o">:</span> <span class="s2">&#34;印度尼西亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">India</span><span class="o">:</span> <span class="s2">&#34;印度&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Ireland</span><span class="o">:</span> <span class="s2">&#34;爱尔兰&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Iran</span><span class="o">:</span> <span class="s2">&#34;伊朗&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Iraq</span><span class="o">:</span> <span class="s2">&#34;伊拉克&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Iceland</span><span class="o">:</span> <span class="s2">&#34;冰岛&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Israel</span><span class="o">:</span> <span class="s2">&#34;以色列&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Italy</span><span class="o">:</span> <span class="s2">&#34;意大利&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Jamaica</span><span class="o">:</span> <span class="s2">&#34;牙买加&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Jordan</span><span class="o">:</span> <span class="s2">&#34;约旦&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Japan</span><span class="o">:</span> <span class="s2">&#34;日本&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Kazakhstan</span><span class="o">:</span> <span class="s2">&#34;哈萨克斯坦&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Kenya</span><span class="o">:</span> <span class="s2">&#34;肯尼亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Kyrgyzstan</span><span class="o">:</span> <span class="s2">&#34;吉尔吉斯斯坦&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Cambodia</span><span class="o">:</span> <span class="s2">&#34;柬埔寨&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Kosovo</span><span class="o">:</span> <span class="s2">&#34;科索沃&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Kuwait</span><span class="o">:</span> <span class="s2">&#34;科威特&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Laos</span><span class="o">:</span> <span class="s2">&#34;老挝&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Lebanon</span><span class="o">:</span> <span class="s2">&#34;黎巴嫩&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Liberia</span><span class="o">:</span> <span class="s2">&#34;利比里亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Libya</span><span class="o">:</span> <span class="s2">&#34;利比亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Sri Lanka&#34;</span><span class="o">:</span> <span class="s2">&#34;斯里兰卡&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Lesotho</span><span class="o">:</span> <span class="s2">&#34;莱索托&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Lithuania</span><span class="o">:</span> <span class="s2">&#34;立陶宛&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Luxembourg</span><span class="o">:</span> <span class="s2">&#34;卢森堡&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Latvia</span><span class="o">:</span> <span class="s2">&#34;拉脱维亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Morocco</span><span class="o">:</span> <span class="s2">&#34;摩洛哥&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Moldova</span><span class="o">:</span> <span class="s2">&#34;摩尔多瓦&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Madagascar</span><span class="o">:</span> <span class="s2">&#34;马达加斯加&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Mexico</span><span class="o">:</span> <span class="s2">&#34;墨西哥&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Macedonia</span><span class="o">:</span> <span class="s2">&#34;马其顿&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Mali</span><span class="o">:</span> <span class="s2">&#34;马里&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Myanmar</span><span class="o">:</span> <span class="s2">&#34;缅甸&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Montenegro</span><span class="o">:</span> <span class="s2">&#34;黑山&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Mongolia</span><span class="o">:</span> <span class="s2">&#34;蒙古&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Mozambique</span><span class="o">:</span> <span class="s2">&#34;莫桑比克&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Mauritania</span><span class="o">:</span> <span class="s2">&#34;毛里塔尼亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Malawi</span><span class="o">:</span> <span class="s2">&#34;马拉维&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Malaysia</span><span class="o">:</span> <span class="s2">&#34;马来西亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Namibia</span><span class="o">:</span> <span class="s2">&#34;纳米比亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;New Caledonia&#34;</span><span class="o">:</span> <span class="s2">&#34;新喀里多尼亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Niger</span><span class="o">:</span> <span class="s2">&#34;尼日尔&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Nigeria</span><span class="o">:</span> <span class="s2">&#34;尼日利亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Nicaragua</span><span class="o">:</span> <span class="s2">&#34;尼加拉瓜&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Netherlands</span><span class="o">:</span> <span class="s2">&#34;荷兰&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Norway</span><span class="o">:</span> <span class="s2">&#34;挪威&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Nepal</span><span class="o">:</span> <span class="s2">&#34;尼泊尔&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;New Zealand&#34;</span><span class="o">:</span> <span class="s2">&#34;新西兰&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Oman</span><span class="o">:</span> <span class="s2">&#34;阿曼&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Pakistan</span><span class="o">:</span> <span class="s2">&#34;巴基斯坦&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Panama</span><span class="o">:</span> <span class="s2">&#34;巴拿马&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Peru</span><span class="o">:</span> <span class="s2">&#34;秘鲁&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Philippines</span><span class="o">:</span> <span class="s2">&#34;菲律宾&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Papua New Guinea&#34;</span><span class="o">:</span> <span class="s2">&#34;巴布亚新几内亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Poland</span><span class="o">:</span> <span class="s2">&#34;波兰&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Puerto Rico&#34;</span><span class="o">:</span> <span class="s2">&#34;波多黎各&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;North Korea&#34;</span><span class="o">:</span> <span class="s2">&#34;北朝鲜&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Portugal</span><span class="o">:</span> <span class="s2">&#34;葡萄牙&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Paraguay</span><span class="o">:</span> <span class="s2">&#34;巴拉圭&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Qatar</span><span class="o">:</span> <span class="s2">&#34;卡塔尔&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Romania</span><span class="o">:</span> <span class="s2">&#34;罗马尼亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Russia</span><span class="o">:</span> <span class="s2">&#34;俄罗斯&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Rwanda</span><span class="o">:</span> <span class="s2">&#34;卢旺达&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Western Sahara&#34;</span><span class="o">:</span> <span class="s2">&#34;西撒哈拉&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Saudi Arabia&#34;</span><span class="o">:</span> <span class="s2">&#34;沙特阿拉伯&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Sudan</span><span class="o">:</span> <span class="s2">&#34;苏丹&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;South Sudan&#34;</span><span class="o">:</span> <span class="s2">&#34;南苏丹&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Senegal</span><span class="o">:</span> <span class="s2">&#34;塞内加尔&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Solomon Islands&#34;</span><span class="o">:</span> <span class="s2">&#34;所罗门群岛&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Sierra Leone&#34;</span><span class="o">:</span> <span class="s2">&#34;塞拉利昂&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;El Salvador&#34;</span><span class="o">:</span> <span class="s2">&#34;萨尔瓦多&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Somaliland</span><span class="o">:</span> <span class="s2">&#34;索马里兰&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Somalia</span><span class="o">:</span> <span class="s2">&#34;索马里&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Republic of Serbia&#34;</span><span class="o">:</span> <span class="s2">&#34;塞尔维亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Suriname</span><span class="o">:</span> <span class="s2">&#34;苏里南&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Slovakia</span><span class="o">:</span> <span class="s2">&#34;斯洛伐克&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Slovenia</span><span class="o">:</span> <span class="s2">&#34;斯洛文尼亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Sweden</span><span class="o">:</span> <span class="s2">&#34;瑞典&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Swaziland</span><span class="o">:</span> <span class="s2">&#34;斯威士兰&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Syria</span><span class="o">:</span> <span class="s2">&#34;叙利亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Chad</span><span class="o">:</span> <span class="s2">&#34;乍得&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Togo</span><span class="o">:</span> <span class="s2">&#34;多哥&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Thailand</span><span class="o">:</span> <span class="s2">&#34;泰国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Tajikistan</span><span class="o">:</span> <span class="s2">&#34;塔吉克斯坦&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Turkmenistan</span><span class="o">:</span> <span class="s2">&#34;土库曼斯坦&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;East Timor&#34;</span><span class="o">:</span> <span class="s2">&#34;东帝汶&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Trinidad and Tobago&#34;</span><span class="o">:</span> <span class="s2">&#34;特里尼达和多巴哥&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Tunisia</span><span class="o">:</span> <span class="s2">&#34;突尼斯&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Turkey</span><span class="o">:</span> <span class="s2">&#34;土耳其&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;United Republic of Tanzania&#34;</span><span class="o">:</span> <span class="s2">&#34;坦桑尼亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Uganda</span><span class="o">:</span> <span class="s2">&#34;乌干达&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Ukraine</span><span class="o">:</span> <span class="s2">&#34;乌克兰&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Uruguay</span><span class="o">:</span> <span class="s2">&#34;乌拉圭&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;United States&#34;</span><span class="o">:</span> <span class="s2">&#34;美国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Uzbekistan</span><span class="o">:</span> <span class="s2">&#34;乌兹别克斯坦&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Venezuela</span><span class="o">:</span> <span class="s2">&#34;委内瑞拉&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Vietnam</span><span class="o">:</span> <span class="s2">&#34;越南&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Vanuatu</span><span class="o">:</span> <span class="s2">&#34;瓦努阿图&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;West Bank&#34;</span><span class="o">:</span> <span class="s2">&#34;西岸&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Yemen</span><span class="o">:</span> <span class="s2">&#34;也门&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;South Africa&#34;</span><span class="o">:</span> <span class="s2">&#34;南非&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Zambia</span><span class="o">:</span> <span class="s2">&#34;赞比亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Korea</span><span class="o">:</span> <span class="s2">&#34;韩国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Tanzania</span><span class="o">:</span> <span class="s2">&#34;坦桑尼亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Zimbabwe</span><span class="o">:</span> <span class="s2">&#34;津巴布韦&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Congo</span><span class="o">:</span> <span class="s2">&#34;刚果&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Central African Rep.&#34;</span><span class="o">:</span> <span class="s2">&#34;中非&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Serbia</span><span class="o">:</span> <span class="s2">&#34;塞尔维亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Bosnia and Herz.&#34;</span><span class="o">:</span> <span class="s2">&#34;波黑&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Czech Rep.&#34;</span><span class="o">:</span> <span class="s2">&#34;捷克&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;W. Sahara&#34;</span><span class="o">:</span> <span class="s2">&#34;西撒哈拉&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Lao PDR&#34;</span><span class="o">:</span> <span class="s2">&#34;老挝&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Dem. Rep. Korea&#34;</span><span class="o">:</span> <span class="s2">&#34;朝鲜&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Falkland Is.&#34;</span><span class="o">:</span> <span class="s2">&#34;福克兰群岛&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Timor-Leste&#34;</span><span class="o">:</span> <span class="s2">&#34;东帝汶&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Solomon Is.&#34;</span><span class="o">:</span> <span class="s2">&#34;所罗门群岛&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Palestine</span><span class="o">:</span> <span class="s2">&#34;巴勒斯坦&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;N. Cyprus&#34;</span><span class="o">:</span> <span class="s2">&#34;北塞浦路斯&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Aland</span><span class="o">:</span> <span class="s2">&#34;奥兰群岛&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Fr. S. Antarctic Lands&#34;</span><span class="o">:</span> <span class="s2">&#34;法属南半球和南极陆地&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Mauritius</span><span class="o">:</span> <span class="s2">&#34;毛里求斯&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Comoros</span><span class="o">:</span> <span class="s2">&#34;科摩罗&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Eq. Guinea&#34;</span><span class="o">:</span> <span class="s2">&#34;赤道几内亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Guinea-Bissau&#34;</span><span class="o">:</span> <span class="s2">&#34;几内亚比绍&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Dominican Rep.&#34;</span><span class="o">:</span> <span class="s2">&#34;多米尼加&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Saint Lucia&#34;</span><span class="o">:</span> <span class="s2">&#34;圣卢西亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Dominica</span><span class="o">:</span> <span class="s2">&#34;多米尼克&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Antigua and Barb.&#34;</span><span class="o">:</span> <span class="s2">&#34;安提瓜和巴布达&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;U.S. Virgin Is.&#34;</span><span class="o">:</span> <span class="s2">&#34;美国原始岛屿&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Montserrat</span><span class="o">:</span> <span class="s2">&#34;蒙塞拉特&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Grenada</span><span class="o">:</span> <span class="s2">&#34;格林纳达&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Barbados</span><span class="o">:</span> <span class="s2">&#34;巴巴多斯&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Samoa</span><span class="o">:</span> <span class="s2">&#34;萨摩亚&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Bahamas</span><span class="o">:</span> <span class="s2">&#34;巴哈马&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Cayman Is.&#34;</span><span class="o">:</span> <span class="s2">&#34;开曼群岛&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Faeroe Is.&#34;</span><span class="o">:</span> <span class="s2">&#34;法罗群岛&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;IsIe of Man&#34;</span><span class="o">:</span> <span class="s2">&#34;马恩岛&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Malta</span><span class="o">:</span> <span class="s2">&#34;马耳他共和国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Jersey</span><span class="o">:</span> <span class="s2">&#34;泽西&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Cape Verde&#34;</span><span class="o">:</span> <span class="s2">&#34;佛得角共和国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Turks and Caicos Is.&#34;</span><span class="o">:</span> <span class="s2">&#34;特克斯和凯科斯群岛&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;Siachen Glacier&#34;</span><span class="o">:</span> <span class="s2">&#34;锡亚琴冰川&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;N. Mariana Is.&#34;</span><span class="o">:</span> <span class="s2">&#34;北马里亚纳群岛邦&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Guam</span><span class="o">:</span> <span class="s2">&#34;关岛&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">Bahrain</span><span class="o">:</span> <span class="s2">&#34;巴林&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;St. Vin. and Gren.&#34;</span><span class="o">:</span> <span class="s2">&#34;圣文森特和格林纳丁斯&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="地图配置">地图配置
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">mapJson</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;@/assets/json/world.json&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">echarts</span><span class="p">.</span><span class="nx">registerMap</span><span class="p">(</span><span class="s2">&#34;world&#34;</span><span class="p">,</span> <span class="nx">mapJson</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">option</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">animation</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">geo</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">show</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">map</span><span class="o">:</span> <span class="s2">&#34;world&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">zoom</span><span class="o">:</span> <span class="mf">4.5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">center</span><span class="o">:</span> <span class="p">[</span><span class="mf">103.289603</span><span class="p">,</span> <span class="mf">35.2544921875</span><span class="p">],</span> <span class="c1">// 地图点中心：可以设置为任意坐标
+</span></span></span><span class="line"><span class="cl">        <span class="nx">roam</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">label</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">normal</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">show</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">color</span><span class="o">:</span> <span class="s2">&#34;#243a4e&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">emphasis</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">color</span><span class="o">:</span> <span class="s2">&#34;#000&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">itemStyle</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">normal</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">areaColor</span><span class="o">:</span> <span class="s2">&#34;rgba(191, 210, 245, 0.5)&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">borderColor</span><span class="o">:</span> <span class="s2">&#34;#fff&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">borderWidth</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">emphasis</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">areaColor</span><span class="o">:</span> <span class="s2">&#34;#f1f6ff&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">borderColor</span><span class="o">:</span> <span class="s2">&#34;#fff&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">borderWidth</span><span class="o">:</span> <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">label</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nx">show</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nx">textStyle</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">color</span><span class="o">:</span> <span class="s2">&#34;#fff&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">fontSize</span><span class="o">:</span> <span class="mi">14</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">nameMap</span><span class="o">:</span> <span class="nx">nameMap</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">regions</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;中国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">itemStyle</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nx">normal</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">borderColor</span><span class="o">:</span> <span class="s2">&#34;#fff&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">borderWidth</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="nx">borderType</span><span class="o">:</span> <span class="s2">&#34;solid&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="nx">areaColor</span><span class="o">:</span> <span class="s2">&#34;rgb(191, 210, 245)&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="nx">shadowBlur</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="nx">shadowColor</span><span class="o">:</span> <span class="s2">&#34;rgb(191, 210, 245)&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="nx">shadowOffsetX</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="nx">shadowOffsetY</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">series</span><span class="o">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mychart</span><span class="p">.</span><span class="nx">setOption</span><span class="p">(</span><span class="nx">option</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="地图自适应">地图自适应
+</h3><p>浏览器窗口缩放时 调整地图大小</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;resize&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">mychart</span><span class="p">.</span><span class="nx">resize</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="地图下钻">地图下钻
+</h2><p>在地图上增加返回按钮</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-vue" data-lang="vue"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;map-container&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span> <span class="nt">@click</span><span class="s">=&#34;back&#34;</span><span class="p"> </span><span class="na">class</span><span class="o">=</span><span class="s">&#34;close-back&#34;</span><span class="p">&gt;</span><span class="nx">返回</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;mapChart&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="地图配置修改">地图配置修改
+</h3><p>将地图绘制封装成一个函数：更改JSON数据源，修改一些ECharts option配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">mapCenter</span> <span class="o">=</span> <span class="p">[</span><span class="mf">103.289603</span><span class="p">,</span> <span class="mf">35.2544921875</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">borderColor</span> <span class="o">=</span> <span class="s2">&#34;#fff&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">chinaColor</span> <span class="o">=</span> <span class="s2">&#34;#7fa0dd&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">worldColor</span> <span class="o">=</span> <span class="s2">&#34;rgba(191, 210, 245, 0.5)&#34;</span><span class="p">;</span> <span class="c1">// 是chinaColor的rgb取透明度的值
+</span></span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">hoverColor</span> <span class="o">=</span> <span class="s2">&#34;#f1f6ff&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">textColor</span> <span class="o">=</span> <span class="s2">&#34;#243a4e&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">hoverTextColor</span> <span class="o">=</span> <span class="s2">&#34;#000&#34;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">drawMap</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">mapJson</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span> <span class="o">==</span> <span class="s2">&#34;world&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">?</span> <span class="p">(</span><span class="nx">mapJson</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;@/assets/json/world.json&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="o">:</span> <span class="p">(</span><span class="nx">mapJson</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;@/assets/json/province/&#34;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s2">&#34;.json&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">echarts</span><span class="p">.</span><span class="nx">registerMap</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">mapJson</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">normalStyle</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span> <span class="o">==</span> <span class="s2">&#34;world&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">?</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">areaColor</span><span class="o">:</span> <span class="nx">worldColor</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">borderColor</span><span class="o">:</span> <span class="nx">borderColor</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">borderWidth</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">borderColor</span><span class="o">:</span> <span class="nx">borderColor</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">            <span class="nx">borderWidth</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">borderType</span><span class="o">:</span> <span class="s2">&#34;solid&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">areaColor</span><span class="o">:</span> <span class="nx">chinaColor</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">            <span class="nx">shadowBlur</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">            <span class="nx">shadowColor</span><span class="o">:</span> <span class="nx">chinaColor</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">            <span class="nx">shadowOffsetX</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">            <span class="nx">shadowOffsetY</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">option</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">animation</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">geo</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">show</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">map</span><span class="o">:</span> <span class="nx">name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">zoom</span><span class="o">:</span> <span class="mf">4.5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">center</span><span class="o">:</span> <span class="nx">mapCenter</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">roam</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">label</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">normal</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">show</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">color</span><span class="o">:</span> <span class="nx">textColor</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">emphasis</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">color</span><span class="o">:</span> <span class="nx">hoverTextColor</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">itemStyle</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">normal</span><span class="o">:</span> <span class="nx">normalStyle</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">emphasis</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">areaColor</span><span class="o">:</span> <span class="nx">hoverColor</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">borderColor</span><span class="o">:</span> <span class="nx">borderColor</span><span class="p">,</span> <span class="c1">// 图形的描边颜色
+</span></span></span><span class="line"><span class="cl">            <span class="nx">borderWidth</span><span class="o">:</span> <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">label</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nx">show</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nx">textStyle</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">color</span><span class="o">:</span> <span class="s2">&#34;#fff&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">fontSize</span><span class="o">:</span> <span class="mi">14</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">nameMap</span><span class="o">:</span> <span class="nx">nameMap</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">regions</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;中国&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">itemStyle</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nx">normal</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">borderColor</span><span class="o">:</span> <span class="nx">borderColor</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="nx">borderWidth</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="nx">borderType</span><span class="o">:</span> <span class="s2">&#34;solid&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="nx">areaColor</span><span class="o">:</span> <span class="nx">chinaColor</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="nx">shadowBlur</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="nx">shadowColor</span><span class="o">:</span> <span class="nx">chinaColor</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                <span class="nx">shadowOffsetX</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">shadowOffsetY</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">series</span><span class="o">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">mychart</span><span class="p">.</span><span class="nx">setOption</span><span class="p">(</span><span class="nx">option</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="返回函数">返回函数
+</h3><p>返回世界地图时，需要重新配置地图中心点和缩放比例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">==</span> <span class="s2">&#34;world&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">mychart</span><span class="p">.</span><span class="nx">setOption</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">geo</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">center</span><span class="o">:</span> <span class="nx">mapCenter</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="c1">// 设置最小缩放至 &amp; 最大缩放到
+</span></span></span><span class="line"><span class="cl">          <span class="nx">scaleLimit</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">min</span><span class="o">:</span> <span class="mf">4.5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">max</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">mychart</span><span class="p">.</span><span class="nx">setOption</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">geo</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">center</span><span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">scaleLimit</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">min</span><span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">max</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">zoom</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="函数封装">函数封装
+</h3><p>定义初始化地图的函数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">initMap</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">mychart</span> <span class="o">=</span> <span class="nx">echarts</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;mapChart&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">backBtn</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;.close-back&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">backBtn</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;none&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">selected</span> <span class="o">=</span> <span class="s2">&#34;world&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">drawMap</span><span class="p">(</span><span class="nx">selected</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在vue页面加载的时候调用该函数，去绘制地图。在二级地图页面，点击返回按钮，也要重新绘制地图。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 二级地图数据
+</span></span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">provinces</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;pakistan&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;shanghai&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;hebei&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;shanxi&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;neimenggu&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;liaoning&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;jilin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;heilongjiang&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;jiangsu&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;zhejiang&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;anhui&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;fujian&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;jiangxi&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;shandong&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;henan&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;hubei&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;hunan&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;guangdong&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;guangxi&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;hainan&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;sichuan&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;guizhou&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;yunnan&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;xizang&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;shanxi1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;gansu&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;qinghai&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ningxia&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;xinjiang&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;beijing&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;tianjin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;chongqing&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;xianggang&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;aomen&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;taiwan&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">provincesText</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;巴基斯坦&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;上海市&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;河北省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;山西省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;内蒙古自治区&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;辽宁省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;吉林省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;黑龙江省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;江苏省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;浙江省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;安徽省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;福建省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;江西省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;山东省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;河南省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;湖北省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;湖南省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;广东省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;广西壮族自治区&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;海南省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;四川省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;贵州省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;云南&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;西藏自治区&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;陕西省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;甘肃省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;青海省&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;宁夏回族自治区&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;新疆维吾尔自治区&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;北京市&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;天津市&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;重庆市&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;香港&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;澳门&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;台湾&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>点击地图上的二级区域（中国的省或者世界地图上的某个国家），下钻到该区域</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl">    <span class="nx">mychart</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&#34;click&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">param</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">provincesText</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(</span><span class="nx">param</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">provincesText</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 显示对应省份的方法
+</span></span></span><span class="line"><span class="cl">            <span class="nx">backBtn</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;block&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">drawMap</span><span class="p">(</span><span class="nx">provinces</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="外国地图下钻">外国地图下钻
+</h3><p>在上面的数据中，是以巴基斯坦为例，实现了巴基斯坦的二级地图下钻。</p>
+<p>如果你要增加其它国家的数据，实现特定国家的地图下钻，你需要在<code>assets/json/province</code>文件夹下，增加该国家的json数据，并且在上述的<code>provinces</code>和<code>provincesText</code>中添加对应的条目。</p>
+<p>如果要对外国二级地点汉化，你需要在<code>nameMap</code>中增加二级城市的中英文映射。</p>
+<p><img alt="越南" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://lh3.googleusercontent.com/d/1GJk-uBAQ8Wxbifb3pQ9K_KOBCPSREcYK"></p>
+<h2 id="完整代码">完整代码
+</h2><p><a class="link" href="https://github.com/neptoo/vue-screen"  target="_blank" rel="noopener"
+    >Github源码</a></p>
+
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/echarts/">Echarts</a>
+        
+            <a href="/tags/vue/">Vue</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright inline-meta">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under <a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"  target="_blank" rel="noopener"
+    >CC BY-NC-SA 4.0</a></span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside>
+    <h2 class="section-title">相关文章</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%8F%E5%8F%AF%E6%8B%96%E5%8A%A8%E6%BB%91%E5%9D%97%E7%BB%84%E4%BB%B6/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 微信小程序实现全屏可拖动滑块组件" height="150" loading="lazy" src="/photo-1508921340878-ba53e1f016ec_15202455271754645037_hu_a534482c8a75669e.jpg" srcset="/photo-1508921340878-ba53e1f016ec_15202455271754645037_hu_a534482c8a75669e.jpg 1x, /photo-1508921340878-ba53e1f016ec_15202455271754645037_hu_4c2e6509ae3d5815.jpg 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #55454e80 0%, #d0cbc8C0 100%);">
+            <h2 class="article-title">微信小程序实现全屏可拖动滑块组件</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+
+        <script src="https://utteranc.es/client.js" 
+        repo="neptoo/hugo-comment"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+
+	
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+        2026 Neptoo&#39;s Blog<br>
+        共嘟嘟了 30227 字<span> · 18篇</br><p>
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.3">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
+
+
+    </body>
+</html>

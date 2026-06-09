@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
+<html lang="zh" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='最近在学习微信小程序的开发，涉及到移动端设备适配的知识点，想到之前秋招一位面试官问我的问题&amp;ndash;怎么判断用户是用什么设备访问的，是pc端还是移动端？ 我回答的是根据屏幕分辨率大小尺寸，他又表示电脑端也可以竖屏。。。然后我就不知道了，后来他也给我讲了应该怎么解决，现在时间有点久了答案已经忘了，于是决定搜集资料写篇博客记录这个问题。 网上给出的大多数方案，用js判断的原理是浏览器提交的user agent，不管是PC还是手机浏览器。
-第一种，使用indexOf判断
-1 2 3 4 5 6 7 8 9 10 11 12  &amp;lt;script&amp;gt; var userAgentInfo = navigator.userAgent; var mAgents = new Array(&amp;#34;Android&amp;#34;, &amp;#34;iPhone&amp;#34;, &amp;#34;SymbianOS&amp;#34;, &amp;#34;Windows Phone&amp;#34;, &amp;#34;iPad&amp;#34;, &amp;#34;iPod&amp;#34;); var pAgents = new Array(&amp;#34;Trident&amp;#34;, &amp;#34;Presto&amp;#34;, &amp;#34;Gecko&amp;#34;, &amp;#34;Webkit&amp;#34;); var flag = false; for (var v = 0; v &amp;lt; mAgents.length; v&#43;&#43;) { if (userAgentInfo.indexOf(Agents[v]) &amp;gt; 0) { flag = true; break; } } if (flag) { // 来自于移动端，同理判断PC浏览器 } &amp;lt;/script&amp;gt;   第二种，使用正则表达式判断'><title>从一道前端面试题说起</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="最近在学习微信小程序的开发，涉及到移动端设备适配的知识点，想到之前秋招一位面试官问我的问题&ndash;怎么判断用户是用什么设备访问的，是pc端还是移动端？ 我回答的是根据屏幕分辨率大小尺寸，他又表示电脑端也可以竖屏。。。然后我就不知道了，后来他也给我讲了应该怎么解决，现在时间有点久了答案已经忘了，于是决定搜集资料写篇博客记录这个问题。 网上给出的大多数方案，用js判断的原理是浏览器提交的user agent，不管是PC还是手机浏览器。\n">
+<title>从一道前端面试题说起</title>
 
-<link rel='canonical' href='https://neptoo.github.io/p/%E4%BB%8E%E4%B8%80%E9%81%93%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E8%AF%B4%E8%B5%B7/'>
 
-<link rel="stylesheet" href="/scss/style.min.d9e0562edde3d2bdf9d3d81365095a29d062ddaaa5d671f22168e57dfdb18b4f.css"><meta property='og:title' content='从一道前端面试题说起'>
-<meta property='og:description' content='最近在学习微信小程序的开发，涉及到移动端设备适配的知识点，想到之前秋招一位面试官问我的问题&amp;ndash;怎么判断用户是用什么设备访问的，是pc端还是移动端？ 我回答的是根据屏幕分辨率大小尺寸，他又表示电脑端也可以竖屏。。。然后我就不知道了，后来他也给我讲了应该怎么解决，现在时间有点久了答案已经忘了，于是决定搜集资料写篇博客记录这个问题。 网上给出的大多数方案，用js判断的原理是浏览器提交的user agent，不管是PC还是手机浏览器。
-第一种，使用indexOf判断
-1 2 3 4 5 6 7 8 9 10 11 12  &amp;lt;script&amp;gt; var userAgentInfo = navigator.userAgent; var mAgents = new Array(&amp;#34;Android&amp;#34;, &amp;#34;iPhone&amp;#34;, &amp;#34;SymbianOS&amp;#34;, &amp;#34;Windows Phone&amp;#34;, &amp;#34;iPad&amp;#34;, &amp;#34;iPod&amp;#34;); var pAgents = new Array(&amp;#34;Trident&amp;#34;, &amp;#34;Presto&amp;#34;, &amp;#34;Gecko&amp;#34;, &amp;#34;Webkit&amp;#34;); var flag = false; for (var v = 0; v &amp;lt; mAgents.length; v&#43;&#43;) { if (userAgentInfo.indexOf(Agents[v]) &amp;gt; 0) { flag = true; break; } } if (flag) { // 来自于移动端，同理判断PC浏览器 } &amp;lt;/script&amp;gt;   第二种，使用正则表达式判断'>
+<link rel="canonical" href="https://neptoo.github.io/p/%E4%BB%8E%E4%B8%80%E9%81%93%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E8%AF%B4%E8%B5%B7/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.e62e09c60ba428a627e03568fa3df938f6a8224f815b5846f00816c17d4a0be4.css"><meta property='og:title' content="从一道前端面试题说起">
+<meta property='og:description' content="最近在学习微信小程序的开发，涉及到移动端设备适配的知识点，想到之前秋招一位面试官问我的问题&ndash;怎么判断用户是用什么设备访问的，是pc端还是移动端？ 我回答的是根据屏幕分辨率大小尺寸，他又表示电脑端也可以竖屏。。。然后我就不知道了，后来他也给我讲了应该怎么解决，现在时间有点久了答案已经忘了，于是决定搜集资料写篇博客记录这个问题。 网上给出的大多数方案，用js判断的原理是浏览器提交的user agent，不管是PC还是手机浏览器。\n">
 <meta property='og:url' content='https://neptoo.github.io/p/%E4%BB%8E%E4%B8%80%E9%81%93%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E8%AF%B4%E8%B5%B7/'>
 <meta property='og:site_name' content='Neptoo&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='面试' /><meta property='article:tag' content='兼容性' /><meta property='article:tag' content='移动端' /><meta property='article:published_time' content='2019-01-16T17:32:44&#43;00:00'/><meta property='article:modified_time' content='2019-01-16T17:32:44&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='interview' /><meta property='article:tag' content='compatibility' /><meta property='article:tag' content='mobile' /><meta property='article:published_time' content='2019-01-16T17:32:44&#43;00:00'/><meta property='article:modified_time' content='2019-01-16T17:32:44&#43;00:00'/>
 <meta name="twitter:title" content="从一道前端面试题说起">
-<meta name="twitter:description" content="最近在学习微信小程序的开发，涉及到移动端设备适配的知识点，想到之前秋招一位面试官问我的问题&amp;ndash;怎么判断用户是用什么设备访问的，是pc端还是移动端？ 我回答的是根据屏幕分辨率大小尺寸，他又表示电脑端也可以竖屏。。。然后我就不知道了，后来他也给我讲了应该怎么解决，现在时间有点久了答案已经忘了，于是决定搜集资料写篇博客记录这个问题。 网上给出的大多数方案，用js判断的原理是浏览器提交的user agent，不管是PC还是手机浏览器。
-第一种，使用indexOf判断
-1 2 3 4 5 6 7 8 9 10 11 12  &amp;lt;script&amp;gt; var userAgentInfo = navigator.userAgent; var mAgents = new Array(&amp;#34;Android&amp;#34;, &amp;#34;iPhone&amp;#34;, &amp;#34;SymbianOS&amp;#34;, &amp;#34;Windows Phone&amp;#34;, &amp;#34;iPad&amp;#34;, &amp;#34;iPod&amp;#34;); var pAgents = new Array(&amp;#34;Trident&amp;#34;, &amp;#34;Presto&amp;#34;, &amp;#34;Gecko&amp;#34;, &amp;#34;Webkit&amp;#34;); var flag = false; for (var v = 0; v &amp;lt; mAgents.length; v&#43;&#43;) { if (userAgentInfo.indexOf(Agents[v]) &amp;gt; 0) { flag = true; break; } } if (flag) { // 来自于移动端，同理判断PC浏览器 } &amp;lt;/script&amp;gt;   第二种，使用正则表达式判断">
+<meta name="twitter:description" content="最近在学习微信小程序的开发，涉及到移动端设备适配的知识点，想到之前秋招一位面试官问我的问题&ndash;怎么判断用户是用什么设备访问的，是pc端还是移动端？ 我回答的是根据屏幕分辨率大小尺寸，他又表示电脑端也可以竖屏。。。然后我就不知道了，后来他也给我讲了应该怎么解决，现在时间有点久了答案已经忘了，于是决定搜集资料写篇博客记录这个问题。 网上给出的大多数方案，用js判断的原理是浏览器提交的user agent，不管是PC还是手机浏览器。\n">
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+
     </head>
     <body class="
     article-page
@@ -45,45 +48,40 @@
     })();
 </script>
 <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
     </button>
 
     <header>
-        
-            
-            <figure class="site-avatar">
+        <figure class="site-avatar">
                 <a href="/">
-                
-                    
-                    
-                    
-                        
-                        <img src="/img/avatar_hu662195dab6b0c294adbff2b4f7cb2a83_243513_300x0_resize_box_3.png" width="300"
-                            height="300" class="site-logo" loading="lazy" alt="Avatar">
-                    
-                
+                    <img src="/img/avatar.png" 
+                        width="256"
+                        height="246"
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
                 </a>
                 
                     <span class="emoji">🌈</span>
                 
             </figure>
-            
         
         
         <div class="site-meta">
             <h1 class="site-name"><a href="/">Neptoo&#39;s Blog</a></h1>
-            <h2 class="site-description">Keep Exploring</h2>
+            <h2 class="site-description"></h2>
         </div>
-    </header><ol class="social-menu">
+    </header><ol class="menu-social">
             
                 <li>
                     <a 
                         href='https://github.com/neptoo'
-                        target="_blank"
+                        
                         title="GitHub"
+                        rel="me"
                     >
                         
                         
@@ -98,15 +96,32 @@
                     </a>
                 </li>
             
+                <li>
+                    <a 
+                        href='mailto:heywuq@outlook.com'
+                        
+                        title="Email"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
         </ol><ol class="menu" id="main-menu">
         
         
         
-
         <li >
             <a href='/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -118,16 +133,13 @@
 
 
                 
-                <span>Home</span>
+                <span>主页</span>
             </a>
         </li>
         
         
-
         <li >
-            <a href='/about/' >
-                
-                
+            <a href='/%E5%85%B3%E4%BA%8E/' >
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -138,16 +150,13 @@
 
 
                 
-                <span>About</span>
+                <span>关于</span>
             </a>
         </li>
         
         
-
         <li >
             <a href='/archives/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -159,16 +168,13 @@
 
 
                 
-                <span>Archives</span>
+                <span>归档</span>
             </a>
         </li>
         
         
-
         <li >
             <a href='/search/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -179,57 +185,16 @@
 
 
                 
-                <span>Search</span>
+                <span>搜索</span>
             </a>
         </li>
         
-        
-
-        <li >
-            <a href='/links/' >
-                
-                
-                
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
-  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
-</svg>
-
-
+        <li class="menu-bottom-section">
+            <ol class="menu">
 
                 
-                <span>Links</span>
-            </a>
-        </li>
-        
-
-        <div class="menu-bottom-section">
-                <li id="i18n-switch">  
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M4 5h7" />
-  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
-  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
-  <path d="M12 20l4 -9l4 9" />
-  <path d="M19.1 18h-6.2" />
-</svg>
-
-
-
-                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
-                        
-                            <option value="https://neptoo.github.io/" selected>English</option>
-                        
-                            <option value="https://neptoo.github.io/zh-cn/" >中文</option>
-                        
-                    </select>
-                </li>
-            
-            
-            
-                <li id="dark-mode-toggle">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="8" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -237,7 +202,7 @@
 
 
 
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="16" cy="12" r="2" />
   <rect x="2" y="6" width="20" height="12" rx="6" />
@@ -245,13 +210,17 @@
 
 
 
-                    <span>Dark Mode</span>
-                </li>
-            
-        </div>
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
     </ol>
 </aside>
-<main class="main full-width">
+
+    
+
+            <main class="main full-width">
     <article class="main-article">
     <header class="article-header">
 
@@ -267,10 +236,17 @@
     </div>
 
     
-    <footer class="article-time">
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
   <circle cx="18" cy="18" r="4" />
@@ -279,13 +255,11 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Jan 16, 2019</time>
-            </div>
-        
+                    <time class="article-time--published" datetime='2019-01-16T17:32:44Z'>2019年1月16日星期三</time>
+                
 
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
   <polyline points="12 7 12 12 15 15" />
@@ -293,17 +267,23 @@
 
 
 
-                <time class="article-time--reading">
-                    1 minute read
-                </time>
+                    <time class="article-time--reading">
+                        阅读时长: 1 分钟
+                    </time>
+                
             </div>
+        
+
+        
+
         
     </footer>
     
+</div>
+
+</header>
 
     
-</div>
-</header>
 
     <section class="article-content">
     
@@ -311,7 +291,7 @@
     <p>最近在学习微信小程序的开发，涉及到移动端设备适配的知识点，想到之前秋招一位面试官问我的问题&ndash;怎么判断用户是用什么设备访问的，是pc端还是移动端？
 我回答的是根据屏幕分辨率大小尺寸，他又表示电脑端也可以竖屏。。。然后我就不知道了，后来他也给我讲了应该怎么解决，现在时间有点久了答案已经忘了，于是决定搜集资料写篇博客记录这个问题。
 网上给出的大多数方案，用js判断的原理是浏览器提交的user agent，不管是PC还是手机浏览器。</p>
-<!-- raw HTML omitted -->
+<!-- more -->
 <p>第一种，使用indexOf判断</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -339,7 +319,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">flag</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// 来自于移动端，同理判断PC浏览器
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -391,21 +371,21 @@
 </section>
 
 
-    <footer class="article-footer">
+    <footer class="article-meta article-footer">
     
     <section class="article-tags">
         
-            <a href="/tags/%E9%9D%A2%E8%AF%95/">面试</a>
+            <a href="/tags/interview/">Interview</a>
         
-            <a href="/tags/%E5%85%BC%E5%AE%B9%E6%80%A7/">兼容性</a>
+            <a href="/tags/compatibility/">Compatibility</a>
         
-            <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
+            <a href="/tags/mobile/">Mobile</a>
         
     </section>
 
 
     
-    <section class="article-copyright">
+    <section class="article-copyright inline-meta">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
@@ -414,7 +394,8 @@
 
 
 
-        <span>Licensed under CC BY-NC-SA 4.0</span>
+        <span>Licensed under <a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"  target="_blank" rel="noopener"
+    >CC BY-NC-SA 4.0</a></span>
     </section>
     </footer>
 
@@ -429,47 +410,52 @@
      
     
         
-    <div class="disqus-container">
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
+
+        <script src="https://utteranc.es/client.js" 
+        repo="neptoo/hugo-comment"
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
 
 <style>
-    .disqus-container {
-        background-color: var(--card-background);
-        border-radius: var(--card-border-radius);
-        box-shadow: var(--shadow-l1);
-        padding: var(--card-padding);
+    .utterances {
+        max-width: unset;
     }
 </style>
 
 <script>
-    window.addEventListener('onColorSchemeChange', (e) => {
-        if (DISQUS) {
-            DISQUS.reset({
-                reload: true
-            });
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
         }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
     })
 </script>
+
 
     
 
@@ -477,116 +463,101 @@
     <section class="copyright">
         &copy; 
         
-            2020 - 
+            2018 - 
         
-        2022 Neptoo&#39;s Blog
+
+	
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+    		
+	
+        2026 Neptoo&#39;s Blog<br>
+        共嘟嘟了 30227 字<span> · 18篇</br><p>
     </section>
     
     <section class="powerby">
-        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.3">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
 
 
     
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
 
     
-    <div class="pswp__bg"></div>
-
-    
-    <div class="pswp__scroll-wrap">
-
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
-            >
 
             </main>
-    
-
         </div>
-        <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+        
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
 
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
-        document.head.appendChild(customFont);
-    }());
-</script>
 
     </body>
 </html>

@@ -16,9 +16,10 @@
 <meta property='og:description' content="前言 在屏幕可视区域内创建多个小球，每个小球的颜色、大小和初始速度都是随机的。 初始化的时候，小球会随机出现在屏幕中的任意位置，碰撞到水平线或者垂直线上（屏幕边缘），会对速度产生一定的影响，因为重力效果，小球最终会停留在水平线上，或者以一定的速度在水平线上左右运动。\n">
 <meta property='og:url' content='https://neptoo.github.io/p/html5-canvas-balls/'>
 <meta property='og:site_name' content='Neptoo&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='可视化' /><meta property='article:tag' content='canvas' /><meta property='article:published_time' content='2024-09-05T15:44:12&#43;08:00'/><meta property='article:modified_time' content='2024-09-05T15:44:12&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='可视化' /><meta property='article:tag' content='canvas' /><meta property='article:published_time' content='2024-09-05T15:44:12&#43;08:00'/><meta property='article:modified_time' content='2024-09-05T15:44:12&#43;08:00'/><meta property='og:image' content='https://plus.unsplash.com/premium_photo-1743567999364-5123cc26b445?q=80&amp;w=1932&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' />
 <meta name="twitter:title" content="HTML5 Canvas 实现带重力效果的碰撞小球">
-<meta name="twitter:description" content="前言 在屏幕可视区域内创建多个小球，每个小球的颜色、大小和初始速度都是随机的。 初始化的时候，小球会随机出现在屏幕中的任意位置，碰撞到水平线或者垂直线上（屏幕边缘），会对速度产生一定的影响，因为重力效果，小球最终会停留在水平线上，或者以一定的速度在水平线上左右运动。\n">
+<meta name="twitter:description" content="前言 在屏幕可视区域内创建多个小球，每个小球的颜色、大小和初始速度都是随机的。 初始化的时候，小球会随机出现在屏幕中的任意位置，碰撞到水平线或者垂直线上（屏幕边缘），会对速度产生一定的影响，因为重力效果，小球最终会停留在水平线上，或者以一定的速度在水平线上左右运动。\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://plus.unsplash.com/premium_photo-1743567999364-5123cc26b445?q=80&amp;w=1932&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' />
     <link rel="shortcut icon" href="/img/favicon.ico" />
 
     </head>
@@ -272,8 +273,14 @@
 
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+    <div class="article-image">
+        <a href="/p/html5-canvas-balls/">
+            <img alt="Featured image of post HTML5 Canvas 实现带重力效果的碰撞小球" height="1087" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://plus.unsplash.com/premium_photo-1743567999364-5123cc26b445?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" srcset="/premium_photo-1743567999364-5123cc26b445_6572293035689939977_hu_8ecd3ef49fdcc606.jpg 800w, /premium_photo-1743567999364-5123cc26b445_6572293035689939977_hu_8415608c7c91e5e1.jpg 1600w, https://plus.unsplash.com/premium_photo-1743567999364-5123cc26b445?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1932w" width="1932">
+        </a>
+    </div>
+    
 
     <div class="article-details">
     
@@ -319,7 +326,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 4 分钟
+                        阅读时长: 3 分钟
                     </time>
                 
             </div>
@@ -379,15 +386,8 @@
 </h2><p>在屏幕可视区域内创建多个小球，每个小球的颜色、大小和初始速度都是随机的。
 初始化的时候，小球会随机出现在屏幕中的任意位置，碰撞到水平线或者垂直线上（屏幕边缘），会对速度产生一定的影响，因为重力效果，小球最终会停留在水平线上，或者以一定的速度在水平线上左右运动。</p>
 <h2 id="效果预览">效果预览
-</h2><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">![跳动的小球](https://s3.bmp.ovh/imgs/2024/09/05/24f65f080d169b35.gif)
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="实现步骤">实现步骤
+</h2><p><img alt="跳动的小球" class="gallery-image" data-flex-basis="568px" data-flex-grow="237" height="540" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="https://i.postimg.cc/mkv3KNty/ani.gif" srcset="/ani_6316792747781551115_hu_cd68851aa9947668.gif 800w, https://i.postimg.cc/mkv3KNty/ani.gif 1280w" width="1280"></p>
+<h2 id="实现步骤">实现步骤
 </h2><h3 id="画一个小球">画一个小球
 </h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -962,10 +962,8 @@
 	
     		
 	
-    		
-	
         2026 Neptoo&#39;s Blog<br>
-        共嘟嘟了 30085 字<span> · 18篇</br><p>
+        共嘟嘟了 28727 字<span> · 17篇</br><p>
     </section>
     
     <section class="powerby">

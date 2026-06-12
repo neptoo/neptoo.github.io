@@ -6,7 +6,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh</language>
         <lastBuildDate>Sun, 03 Nov 2024 10:33:34 +0800</lastBuildDate><atom:link href="https://neptoo.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-            <title>Echarts</title>
+            <title>ECharts</title>
             <link>https://neptoo.github.io/tags/echarts/</link>
             <pubDate>Sun, 03 Nov 2024 10:33:34 +0800</pubDate>
             <guid>https://neptoo.github.io/tags/echarts/</guid>
@@ -34,6 +34,12 @@
             <link>https://neptoo.github.io/tags/productivity/</link>
             <pubDate>Mon, 02 Sep 2024 17:06:00 +0800</pubDate>
             <guid>https://neptoo.github.io/tags/productivity/</guid>
+            <description></description>
+        </item><item>
+            <title>Software</title>
+            <link>https://neptoo.github.io/tags/software/</link>
+            <pubDate>Mon, 02 Sep 2024 17:06:00 +0800</pubDate>
+            <guid>https://neptoo.github.io/tags/software/</guid>
             <description></description>
         </item><item>
             <title>Css</title>

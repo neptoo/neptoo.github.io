@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh" dir="ltr">
+<html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="最近在学习微信小程序的开发，涉及到移动端设备适配的知识点，想到之前秋招一位面试官问我的问题&ndash;怎么判断用户是用什么设备访问的，是pc端还是移动端？ 我回答的是根据屏幕分辨率大小尺寸，他又表示电脑端也可以竖屏。。。然后我就不知道了，后来他也给我讲了应该怎么解决，现在时间有点久了答案已经忘了，于是决定搜集资料写篇博客记录这个问题。 网上给出的大多数方案，用js判断的原理是浏览器提交的user agent，不管是PC还是手机浏览器。\n">
 <title>从一道前端面试题说起</title>
@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.e62e09c60ba428a627e03568fa3df938f6a8224f815b5846f00816c17d4a0be4.css"><meta property='og:title' content="从一道前端面试题说起">
+<link rel="stylesheet" href="/scss/style.min.595b2ea93ee63c534e353fd3bd19b806c70e69065511601e79f0d0119275a4b3.css"><meta property='og:title' content="从一道前端面试题说起">
 <meta property='og:description' content="最近在学习微信小程序的开发，涉及到移动端设备适配的知识点，想到之前秋招一位面试官问我的问题&ndash;怎么判断用户是用什么设备访问的，是pc端还是移动端？ 我回答的是根据屏幕分辨率大小尺寸，他又表示电脑端也可以竖屏。。。然后我就不知道了，后来他也给我讲了应该怎么解决，现在时间有点久了答案已经忘了，于是决定搜集资料写篇博客记录这个问题。 网上给出的大多数方案，用js判断的原理是浏览器提交的user agent，不管是PC还是手机浏览器。\n">
 <meta property='og:url' content='https://neptoo.github.io/p/%E4%BB%8E%E4%B8%80%E9%81%93%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E8%AF%B4%E8%B5%B7/'>
 <meta property='og:site_name' content='Neptoo&#39;s Blog'>
@@ -48,7 +48,7 @@
     })();
 </script>
 <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
@@ -133,13 +133,13 @@
 
 
                 
-                <span>主页</span>
+                <span>主页 | Home</span>
             </a>
         </li>
         
         
         <li >
-            <a href='/%E5%85%B3%E4%BA%8E/' >
+            <a href='/%E5%85%B3%E4%BA%8E-about/' >
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -150,7 +150,7 @@
 
 
                 
-                <span>关于</span>
+                <span>关于 | About</span>
             </a>
         </li>
         
@@ -168,7 +168,7 @@
 
 
                 
-                <span>归档</span>
+                <span>博客｜Archives</span>
             </a>
         </li>
         
@@ -185,7 +185,7 @@
 
 
                 
-                <span>搜索</span>
+                <span>搜索｜Search</span>
             </a>
         </li>
         
@@ -210,7 +210,7 @@
 
 
 
-                        <span>暗色模式</span>
+                        <span>Dark Mode</span>
                     </li>
                 
             </ol>
@@ -255,7 +255,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                    <time class="article-time--published" datetime='2019-01-16T17:32:44Z'>2019年1月16日星期三</time>
+                    <time class="article-time--published" datetime='2019-01-16T17:32:44Z'>Wednesday, January 16, 2019</time>
                 
 
                 
@@ -268,7 +268,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 1 分钟
+                        1 minute read
                     </time>
                 
             </div>
@@ -395,7 +395,14 @@
 
 
         <span>Licensed under <a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"  target="_blank" rel="noopener"
-    >CC BY-NC-SA 4.0</a></span>
+    >CC BY-NC-SA 4.0</a>
+    
+<span style="white-space: nowrap;"><svg width=".7em"
+    height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+    <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+    <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+        fill="currentColor">
+</svg></span></span>
     </section>
     </footer>
 
@@ -509,12 +516,12 @@
     		
 	
         2026 Neptoo&#39;s Blog<br>
-        共嘟嘟了 28727 字<span> · 17篇</br><p>
+        共嘟嘟了 28726 字<span> · 17篇文章</br><p>
     </section>
     
     <section class="powerby">
-        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.3">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.3">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 
@@ -554,7 +561,7 @@
             </main>
         </div>
         
-<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
+<script type="text/javascript" src="/ts/main.1ff1e5fdc4e178ed422e50aa407526dc552f26342d729343fded19416194382c.js" defer></script>
 
 
     </body>

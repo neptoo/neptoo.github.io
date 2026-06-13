@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.595b2ea93ee63c534e353fd3bd19b806c70e69065511601e79f0d0119275a4b3.css"><meta property='og:title' content="毕业设计(下):Vue+ElementUI+ECharts实现前端数据可视化">
+<link rel="stylesheet" href="/scss/style.min.5c9104cbf551fe6f82b65f6f027f1a008485995b51f5873b17178fafff2f95fc.css"><meta property='og:title' content="毕业设计(下):Vue+ElementUI+ECharts实现前端数据可视化">
 <meta property='og:description' content="毕业设计最终项目成果见github仓库：点击跳转 ，如果觉得有帮助请点个star\n基础配置 安装ECharts依赖 1 npm install echarts -S 全局引入 main.js 1 2 3 // 引入echarts import echarts from &#39;echarts&#39; Vue.prototype.$echarts = echarts 页面框架 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 &lt;template&gt; &lt;div&gt; &lt;el-row :gutter=&#34;20&#34;&gt; &lt;el-col :xs=&#34;24&#34; :sm=&#34;24&#34; :md=&#34;8&#34; :lg=&#34;8&#34;&gt; &lt;el-card class=&#34;box-card&#34;&gt; &lt;degreeChart&gt;&lt;/degreeChart&gt; &lt;/el-card&gt; &lt;/el-col&gt; &lt;el-col :xs=&#34;24&#34; :sm=&#34;24&#34; :md=&#34;16&#34; :lg=&#34;16&#34;&gt; &lt;el-card class=&#34;box-card&#34;&gt; &lt;moneyLine&gt;&lt;/moneyLine&gt; &lt;/el-card&gt; &lt;/el-col&gt; &lt;/el-row&gt; &lt;el-row :gutter=&#34;20&#34;&gt; &lt;el-col :xs=&#34;24&#34; :sm=&#34;24&#34; :md=&#34;12&#34; :lg=&#34;12&#34;&gt; &lt;el-card class=&#34;box-card&#34;&gt; &lt;cityChart&gt;&lt;/cityChart&gt; &lt;/el-card&gt; &lt;/el-col&gt; &lt;el-col :xs=&#34;24&#34; :sm=&#34;24&#34; :md=&#34;12&#34; :lg=&#34;12&#34;&gt; &lt;el-card class=&#34;box-card&#34;&gt; &lt;funnelChart&gt;&lt;/funnelChart&gt; &lt;/el-card&gt; &lt;/el-col&gt; &lt;/el-row&gt; &lt;/div&gt; &lt;/template&gt; &lt;script&gt; import degreeChart from &#39;../charts/degreeChart.vue&#39;; import moneyLine from &#39;../charts/moneyLine.vue&#39;; import cityChart from &#39;../charts/cityChart.vue&#39;; import funnelChart from &#39;../charts/funnelChart.vue&#39;; export default { components:{ degreeChart,moneyLine,cityChart,funnelChart }, methods: { } } &lt;/script&gt; &lt;style scoped&gt; &lt;/style&gt; 在index.js中引入文件\n">
 <meta property='og:url' content='https://neptoo.github.io/p/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%E4%B8%8Bvue-elementui-echarts%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/'>
 <meta property='og:site_name' content='Neptoo&#39;s Blog'>
@@ -1010,6 +1010,11 @@
     
 
     <footer class="site-footer">
+    
+    <section class="running-time">
+    本博客已稳定运行
+    <span id="runningdays" class="running-days"></span>
+    </section>
     <section class="copyright">
         &copy; 
         
@@ -1058,8 +1063,13 @@
 	
     		
 	
-        2026 Neptoo&#39;s Blog<br>
-        共嘟嘟了 28726 字<span> · 17篇文章</br><p>
+    
+    
+    
+    2026 Neptoo&#39;s Blog <br>
+        发表了17篇文章 ·
+        总计2万8千字</br>
+        <span class="subtitle">All rights reserved. 禁止转载。如需引用，请注明文章链接。</span><p>
     </section>
     
     <section class="powerby">
@@ -1105,6 +1115,36 @@
         </div>
         
 <script type="text/javascript" src="/ts/main.1ff1e5fdc4e178ed422e50aa407526dc552f26342d729343fded19416194382c.js" defer></script>
+
+<script>
+ let s1 = '2018-7-11'; 
+ s1 = new Date(s1.replace(/-/g, "/"));
+ let s2 = new Date();
+
+ 
+ let diffInMilliseconds = s2.getTime() - s1.getTime();
+ let totalDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+
+ 
+ let years = s2.getFullYear() - s1.getFullYear();
+ let months = s2.getMonth() - s1.getMonth();
+ let days = s2.getDate() - s1.getDate();
+
+ 
+ if (days < 0) {
+   months -= 1;
+   let prevMonth = new Date(s2.getFullYear(), s2.getMonth(), 0); 
+   days += prevMonth.getDate();
+ }
+ if (months < 0) {
+   years -= 1;
+   months += 12;
+ }
+
+ 
+ let result = `${years}年${months}月${days}天`;
+ document.getElementById('runningdays').innerHTML = result;
+</script>
 
 
     </body>

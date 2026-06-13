@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.595b2ea93ee63c534e353fd3bd19b806c70e69065511601e79f0d0119275a4b3.css"><meta property='og:title' content="HTML5 Canvas 实现带重力效果的碰撞小球">
+<link rel="stylesheet" href="/scss/style.min.5c9104cbf551fe6f82b65f6f027f1a008485995b51f5873b17178fafff2f95fc.css"><meta property='og:title' content="HTML5 Canvas 实现带重力效果的碰撞小球">
 <meta property='og:description' content="前言 在屏幕可视区域内创建多个小球，每个小球的颜色、大小和初始速度都是随机的。 初始化的时候，小球会随机出现在屏幕中的任意位置，碰撞到水平线或者垂直线上（屏幕边缘），会对速度产生一定的影响，因为重力效果，小球最终会停留在水平线上，或者以一定的速度在水平线上左右运动。\n">
 <meta property='og:url' content='https://neptoo.github.io/p/html5-canvas-balls/'>
 <meta property='og:site_name' content='Neptoo&#39;s Blog'>
@@ -930,6 +930,11 @@
     
 
     <footer class="site-footer">
+    
+    <section class="running-time">
+    本博客已稳定运行
+    <span id="runningdays" class="running-days"></span>
+    </section>
     <section class="copyright">
         &copy; 
         
@@ -978,8 +983,13 @@
 	
     		
 	
-        2026 Neptoo&#39;s Blog<br>
-        共嘟嘟了 28726 字<span> · 17篇文章</br><p>
+    
+    
+    
+    2026 Neptoo&#39;s Blog <br>
+        发表了17篇文章 ·
+        总计2万8千字</br>
+        <span class="subtitle">All rights reserved. 禁止转载。如需引用，请注明文章链接。</span><p>
     </section>
     
     <section class="powerby">
@@ -1025,6 +1035,36 @@
         </div>
         
 <script type="text/javascript" src="/ts/main.1ff1e5fdc4e178ed422e50aa407526dc552f26342d729343fded19416194382c.js" defer></script>
+
+<script>
+ let s1 = '2018-7-11'; 
+ s1 = new Date(s1.replace(/-/g, "/"));
+ let s2 = new Date();
+
+ 
+ let diffInMilliseconds = s2.getTime() - s1.getTime();
+ let totalDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+
+ 
+ let years = s2.getFullYear() - s1.getFullYear();
+ let months = s2.getMonth() - s1.getMonth();
+ let days = s2.getDate() - s1.getDate();
+
+ 
+ if (days < 0) {
+   months -= 1;
+   let prevMonth = new Date(s2.getFullYear(), s2.getMonth(), 0); 
+   days += prevMonth.getDate();
+ }
+ if (months < 0) {
+   years -= 1;
+   months += 12;
+ }
+
+ 
+ let result = `${years}年${months}月${days}天`;
+ document.getElementById('runningdays').innerHTML = result;
+</script>
 
 
     </body>

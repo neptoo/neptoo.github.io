@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.595b2ea93ee63c534e353fd3bd19b806c70e69065511601e79f0d0119275a4b3.css"><meta property='og:title' content="前端数据结构的算法实现">
+<link rel="stylesheet" href="/scss/style.min.5c9104cbf551fe6f82b65f6f027f1a008485995b51f5873b17178fafff2f95fc.css"><meta property='og:title' content="前端数据结构的算法实现">
 <meta property='og:description' content=" 前端面试中算法题是比较难的一部分，今天总结下数据结构中的算法实现。\n排序 快速排序 找到一个数作为参考，比这个数字大放左边，比它小放右边，然后分别对左边和右边做相同操作。\n">
 <meta property='og:url' content='https://neptoo.github.io/p/%E5%89%8D%E7%AB%AF%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/'>
 <meta property='og:site_name' content='Neptoo&#39;s Blog'>
@@ -1470,6 +1470,11 @@
     
 
     <footer class="site-footer">
+    
+    <section class="running-time">
+    本博客已稳定运行
+    <span id="runningdays" class="running-days"></span>
+    </section>
     <section class="copyright">
         &copy; 
         
@@ -1518,8 +1523,13 @@
 	
     		
 	
-        2026 Neptoo&#39;s Blog<br>
-        共嘟嘟了 28726 字<span> · 17篇文章</br><p>
+    
+    
+    
+    2026 Neptoo&#39;s Blog <br>
+        发表了17篇文章 ·
+        总计2万8千字</br>
+        <span class="subtitle">All rights reserved. 禁止转载。如需引用，请注明文章链接。</span><p>
     </section>
     
     <section class="powerby">
@@ -1565,6 +1575,36 @@
         </div>
         
 <script type="text/javascript" src="/ts/main.1ff1e5fdc4e178ed422e50aa407526dc552f26342d729343fded19416194382c.js" defer></script>
+
+<script>
+ let s1 = '2018-7-11'; 
+ s1 = new Date(s1.replace(/-/g, "/"));
+ let s2 = new Date();
+
+ 
+ let diffInMilliseconds = s2.getTime() - s1.getTime();
+ let totalDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+
+ 
+ let years = s2.getFullYear() - s1.getFullYear();
+ let months = s2.getMonth() - s1.getMonth();
+ let days = s2.getDate() - s1.getDate();
+
+ 
+ if (days < 0) {
+   months -= 1;
+   let prevMonth = new Date(s2.getFullYear(), s2.getMonth(), 0); 
+   days += prevMonth.getDate();
+ }
+ if (months < 0) {
+   years -= 1;
+   months += 12;
+ }
+
+ 
+ let result = `${years}年${months}月${days}天`;
+ document.getElementById('runningdays').innerHTML = result;
+</script>
 
 
     </body>
